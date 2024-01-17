@@ -3,47 +3,27 @@
         <meta charset="UTF-8" />
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <link rel="stylesheet" href="/spectre.css" />
-        <link rel="stylesheet" href="/spectre-icons.css" />
+        {{! <link rel="stylesheet" href="/spectre.css" />
+        <link rel="stylesheet" href="/spectre-icons.css" /> }}
         <link rel="stylesheet" href="/layout.css" />
-        <title>Moodspiration_</title>
+        <title>JKPG City</title>
     </head>
     <body class="full-height">
-        <div class="container py-2 mb-4">
-            <div class="columns">
-                <div class="column col-1"></div>
-                <div class="column col-10">
-                    <header class="navbar">
-                        <section class="navbar-section">
-                            <a class="btn btn-link text-primary text-uppercase text-large text-bold" href="/">Moodspiration_</a>
-                        </section>
-                        <section class="navbar-section">
-                            <a class="btn btn-link" href="/notes">Notes</a>
-                            <a class="btn btn-link" href="/collections">Collections</a>
-                            <a class="btn btn-link" href="/notes/create-note">Create a note</a>
-                            <a class="btn btn-link" href="/collections/create-collection">Create a collection</a>
-                            {{#if isLoggedIn}}
-                                <a class="btn btn-link" href="/profile">My Profile</a>
-                                <a class="btn btn-link bg-primary text-light ml-1" href="/log-out">Log out<i class="icon ml-2 icon-shutdown"></i></a>
-                            {{else}}
-                                <a class="btn btn-link bg-primary text-light ml-1" href="/log-in">Log in<i class="icon ml-2 icon-people"></i></a>
-                            {{/if}}
-                            <div class="dropdown">
-                                <button class="btn btn-link dropdown-toggle" tabindex="0">
-                                    Infos
-                                    <i class="icon icon-caret"></i>
-                                </button>
-                                <ul class="menu pl-2">
-                                    <a class="d-block mb-2" href="/about">About</a>
-                                    <a class="d-block" href="/contact">Contact</a>
-                                </ul>
-                            </div>
-                        </section>
-                    </header>
-                </div>
-                <div class="column col-1"></div>
-            </div>
-        </div>
+        <header class="header">
+            <a class="header-logo" href="/">jkpgcity.</a>
+            <section class="navbar">
+                <a class="btn btn-link" href="/notes">Notes</a>
+                <a class="btn btn-link" href="/collections">Collections</a>
+                {{! <a class="btn btn-link" href="/notes/create-note">Create a note</a>
+                <a class="btn btn-link" href="/collections/create-collection">Create a collection</a> }}
+                {{#if isLoggedIn}}
+                    <a class="btn btn-link" href="/profile">My Profile</a>
+                    <a class="btn btn-link bg-primary text-light ml-1" href="/log-out">Log out<i class="icon ml-2 icon-shutdown"></i></a>
+                {{else}}
+                    <a class="btn btn-link bg-primary text-light ml-1" href="/log-in">Log in<i class="icon ml-2 icon-people"></i></a>
+                {{/if}}
+            </section>
+        </header>
 
         <div class="container">
             <div class="columns">
@@ -55,8 +35,8 @@
             </div>
         </div>
 
-        <footer class="bg-primary py-3 mt-4 p-bottom">
-            <p class="text-center mb-1">Copyright Lucas Bacconnier — 2022 — Moodspiration</p>
+        <footer>
+            <p>© codesigners — 2024 — jkpgcity</p>
         </footer>
     </body>
 </html>
