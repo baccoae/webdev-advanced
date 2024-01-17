@@ -9,7 +9,7 @@ header {
     flex-direction: row;
     align-items: center;
     width: fit-content;
-    padding: 20px 2em;
+    padding: 10px;
     border-radius: 4px;
     bottom: 2em;
     left: 0;
@@ -95,6 +95,12 @@ header {
     font-weight: 5000;
     text-transform: uppercase;
 }
+
+.header-logo {
+    background-color: rgb(50, 50, 50);
+    padding: 15px;
+    border-radius: 2px;
+  }
 
 footer {
     display: flex;
