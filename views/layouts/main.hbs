@@ -12,15 +12,15 @@
         <header class="header">
             <a class="header-logo" href="/">jkpgcity.</a>
             <section class="navbar">
-                <a class="btn btn-link" href="/notes">Notes</a>
-                <a class="btn btn-link" href="/collections">Collections</a>
-                {{! <a class="btn btn-link" href="/notes/create-note">Create a note</a>
-                <a class="btn btn-link" href="/collections/create-collection">Create a collection</a> }}
+                <a href="/stores">stores</a>
+                {{! <a href="/collections">Collections</a> }}
+                <a href="/stores/create-store">Add Store</a>
+                {{! <a href="/collections/create-collection">Create a collection</a> }}
                 {{#if isLoggedIn}}
-                    <a class="btn btn-link" href="/profile">My Profile</a>
-                    <a class="btn btn-link bg-primary text-light ml-1" href="/log-out">Log out<i class="icon ml-2 icon-shutdown"></i></a>
+                    <a href="/profile">account</a>
+                    <a class="btn" href="/log-out">Log out<i class="icon ml-2 icon-shutdown"></i></a>
                 {{else}}
-                    <a class="btn btn-link bg-primary text-light ml-1" href="/log-in">Log in<i class="icon ml-2 icon-people"></i></a>
+                    <a class="btn" href="/log-in">Log in<i class="icon ml-2 icon-people"></i></a>
                 {{/if}}
             </section>
         </header>
