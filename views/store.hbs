@@ -1,0 +1,25 @@
+<div class="container mt-4">
+    <div class="columns">
+        <div class="column col-1"></div>
+        <div class="column col-10 mb-6">
+
+            {{#if loginError.length}}
+                <div class="toast toast-error mb-4">
+                    {{#each loginError}}
+                        <p>{{this}}</p>
+                    {{/each}}
+                </div>
+
+            {{else}}
+                {{#if store}}
+                    <h1 class="mt-3 mb-1">{{store.storeName}}</h1>
+                    <p class="text-large">{{store.storeURL}}</p>
+
+                {{else}}
+                    <p>Sorry, this store does not exist</p>
+                {{/if}}
+            {{/if}}
+        </div>
+        <div class="column col-1"></div>
+    </div>
+</div>

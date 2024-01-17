@@ -8,6 +8,8 @@ const bodyParser = require('body-parser')
 const SQLiteStore = require('connect-sqlite3')(expressSession);
 const bcrypt = require('bcrypt')
 
+const data = require('./stores.json')
+
 
 // HARDCODED USER CREDENTIALS =============================
 
@@ -35,40 +37,50 @@ const MAX_COMMENT_CONTENT_LENGTH = 120
 
 // DATABASE ===============================================
 
-const db = new sqlite3.Database("moodspiration-database.db")
+const db = new sqlite3.Database("jkpg_stores-database.db")
+
+// db.run(`
+// 	CREATE TABLE IF NOT EXISTS collections (
+// 		collectionId INTEGER,
+// 		collectionTitle TEXT,
+// 		collectionAuthor TEXT,
+// 		collectionDesc TEXT,
+// 		PRIMARY KEY(collectionId AUTOINCREMENT)
+// 	)
+// `)
+
+// db.run(`
+// 	CREATE TABLE IF NOT EXISTS comments (
+// 		commentId	INTEGER,
+// 		commentTitle TEXT,
+// 		commentContent	TEXT,
+// 		commentAuthor	TEXT,
+// 		noteId	INTEGER,
+// 		FOREIGN KEY(noteId) REFERENCES notes(noteId),
+// 		PRIMARY KEY(commentId AUTOINCREMENT)
+// 	)
+// `)
+
+// db.run(`
+// CREATE TABLE IF NOT EXISTS notes (
+// 	noteId	INTEGER,
+// 	noteTitle	TEXT,
+// 	noteImage	TEXT,
+// 	noteAuthor	TEXT,
+// 	noteDesc	TEXT,
+// 	collectionId	INTEGER,
+// 	FOREIGN KEY(collectionId) REFERENCES collections(collectionId),
+// 	PRIMARY KEY(noteId AUTOINCREMENT)
+// )
+// `)
 
 db.run(`
-	CREATE TABLE IF NOT EXISTS collections (
-		collectionId INTEGER,
-		collectionTitle TEXT,
-		collectionAuthor TEXT,
-		collectionDesc TEXT,
-		PRIMARY KEY(collectionId AUTOINCREMENT)
-	)
-`)
-
-db.run(`
-	CREATE TABLE IF NOT EXISTS comments (
-		commentId	INTEGER,
-		commentTitle TEXT,
-		commentContent	TEXT,
-		commentAuthor	TEXT,
-		noteId	INTEGER,
-		FOREIGN KEY(noteId) REFERENCES notes(noteId),
-		PRIMARY KEY(commentId AUTOINCREMENT)
-	)
-`)
-
-db.run(`
-CREATE TABLE IF NOT EXISTS notes (
-	noteId	INTEGER,
-	noteTitle	TEXT,
-	noteImage	TEXT,
-	noteAuthor	TEXT,
-	noteDesc	TEXT,
-	collectionId	INTEGER,
-	FOREIGN KEY(collectionId) REFERENCES collections(collectionId),
-	PRIMARY KEY(noteId AUTOINCREMENT)
+CREATE TABLE IF NOT EXISTS stores (
+	storeId	INTEGER,
+	storeName	TEXT,
+	storeURL	TEXT,
+	storeDistrict	TEXT,
+	PRIMARY KEY(storeId AUTOINCREMENT)
 )
 `)
 
@@ -110,26 +122,26 @@ app.use(function (request, response, next) {
 
 // ERROR HANDLING FUNCTIONS ===============================
 
-function getValidationErrorsForNotes(noteTitle, noteImage, noteDesc) {
+function getValidationErrorsForStores(storeName, storeURL) {
 	const validationErrors = []
 
-	if (noteTitle.length == 0) {
+	if (storeName.length == 0) {
 		validationErrors.push("Title cannot be empty")
 	}
 
-	if (noteTitle.length > MAX_NOTE_TITLE_LENGTH) {
+	if (storeName.length > MAX_NOTE_TITLE_LENGTH) {
 		validationErrors.push("The title cannot be longer than" + MAX_NOTE_TITLE_LENGTH + "characters.")
 	}
 
-	if (noteImage.length > 0 && noteImage.slice(0, 33) != "https://images.unsplash.com/photo") {
-		validationErrors.push("The image link must come from Unsplash.com")
-	}
+	// if (noteImage.length > 0 && noteImage.slice(0, 33) != "https://images.unsplash.com/photo") {
+	// 	validationErrors.push("The image link must come from Unsplash.com")
+	// }
 
-	if (noteDesc > MAX_NOTE_DESC_LENGTH) {
+	if (storeURL > MAX_NOTE_DESC_LENGTH) {
 		validationErrors.push("The description cannot be longer than" + MAX_NOTE_DESC_LENGTH + "characters.")
 	}
 
-	if (noteImage.length == 0) {
+	if (storeURL.length == 0) {
 		validationErrors.push("The image URL cannot be empty")
 	}
 
@@ -205,64 +217,64 @@ app.get('/contact', function (request, response) {
 // ========================================================
 
 // all notes page
-app.get('/notes', function (request, response) {
-	const query = "SELECT * FROM notes ORDER BY noteId"
-	db.all(query, function (error, notes) {
+app.get('/stores', function (request, response) {
+	const query = "SELECT * FROM stores ORDER BY storeId"
+	db.all(query, function (error, stores) {
 
 		if (error) {
 			console.log(error)
 		}
 		else {
 			const model = {
-				notes
+				stores
 			}
 
-			response.render('notes.hbs', model)
+			response.render('stores.hbs', model)
 		}
 	})
 })
 
 // create a new note page
-app.get('/notes/create-note', function (request, response) {
-	response.render('create-note.hbs')
+app.get('/stores/create-store', function (request, response) {
+	response.render('create-store.hbs')
 })
 
 // create a new note post request
-app.post("/notes/create-note", function (request, response) {
-	const noteTitle = request.body.title
-	const noteImage = request.body.src
-	const noteAuthor = request.session.username
-	const noteDesc = request.body.desc
+app.post("/stores/create-store", function (request, response) {
+	const storeName = request.body.name
+	const storeURL = request.body.url
+	// const storeImage = request.body.src
+	// const storeAuthor = request.session.username
+	// const storeDesc = request.body.desc
 
-	const validationErrors = getValidationErrorsForNotes(noteTitle, noteImage, noteDesc)
+	const validationErrors = getValidationErrorsForStores(storeName, storeURL)
 
 	if (!request.session.isLoggedIn) {
-		validationErrors.push("You have to be logged in to create a note.")
+		validationErrors.push("You have to be logged in to add a store.")
 	}
 
 	if (validationErrors.length == 0) {
-		const query = "INSERT INTO notes (noteTitle, noteImage, noteAuthor, noteDesc) VALUES (?, ?, ?, ?)"
-		const values = [noteTitle, noteImage, noteAuthor, noteDesc]
+		const query = "INSERT INTO stores (storeName, storeURL) VALUES (?, ?)"
+		const values = [storeName, storeURL]
 
 		db.run(query, values, function (error) {
 			if (error) {
 				console.log(error)
 			}
 			else {
-				response.redirect('/notes/' + this.lastID)
+				response.redirect('/stores/' + this.lastID)
 			}
 		})
 	}
 	else {
 		const model = {
 			validationErrors,
-			noteTitle,
-			noteImage,
-			noteDesc,
-			noteId: request.params.id
+			storeName,
+			storeURL,
+			storeId: request.params.id
 		}
 
-		response.render('create-note.hbs', model)
+		response.render('create-store.hbs', model)
 	}
 })
 
@@ -366,31 +378,30 @@ app.post("/note-update/:id", function (request, response) {
 	const newNoteImage = request.body.newNoteImage
 	const newNoteDesc = request.body.newNoteDesc
 
-	const validationErrors = getValidationErrorsForNotes(newNoteTitle, newNoteImage, newNoteDesc)
+	const validationErrors = getValidationErrorsForStores(newStoreName, newStoreURL)
 
 	if (validationErrors.length == 0) {
-		const query = "UPDATE notes SET noteTitle = ?, noteImage = ?, noteDesc = ? WHERE noteId = ?"
-		const values = [newNoteTitle, newNoteImage, newNoteDesc, id]
+		const query = "UPDATE stores SET storeName = ?, storeURL = ?"
+		const values = [newStoreName, newStoreURL, id]
 
 		db.all(query, values, function (error) {
 			if (error) {
 				console.log(error)
 			}
 			else {
-				response.redirect("/notes/" + id)
+				response.redirect("/stores/" + id)
 			}
 		})
 	}
 	else {
 		const model = {
 			validationErrors,
-			noteId: id,
-			noteTitle: newNoteTitle,
-			noteImage: newNoteImage,
-			noteDesc: newNoteDesc
+			storeId: id,
+			storeName: newStoreName,
+			storeURL: newStoreURL,
 		}
 
-		response.render("note-update.hbs", model)
+		response.render("store-update.hbs", model)
 	}
 })
 
@@ -450,41 +461,23 @@ app.post('/add-to-collection/:id', function (request, response) {
 })
 
 // detailed view of a note
-app.get('/notes/:id', function (request, response) {
+app.get("/stores/:id", function (request, response) {
+
 	const id = request.params.id
 
-	const query = "SELECT * FROM notes WHERE noteId = ?"
+	const query = `SELECT * FROM stores WHERE storeId = ?`
 	const values = [id]
 
-	db.get(query, values, function (error, note) {
-		if (error) {
-			console.log(error)
+	db.get(query, values, function (error, store) {
+
+		const model = {
+			store,
 		}
-		else {
 
-			const query = "SELECT * FROM comments WHERE noteId = ?"
-			const values = [id]
+		response.render('store.hbs', model)
 
-			db.all(query, values, function (error, comments) {
-				if (error) {
-					console.log(error);
-					response.redirect("/error/")
-				}
-
-				else {
-					const commentList = {
-						comments
-					}
-
-					const model = {
-						note,
-						comments: commentList.comments
-					}
-					response.render('note.hbs', model)
-				}
-			})
-		}
 	})
+
 })
 
 
