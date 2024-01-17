@@ -1,0 +1,37 @@
+<h1 class="mb-4">Write a <span class="bg-primary text-italic text-light px-2">comment</span></h1>
+
+{{#if validationErrors.length}}
+    <div class="toast toast-error mb-4">
+        <p>Could not add a comment because of the following errors : </p>
+        <ul>
+            {{#each validationErrors}}
+                <li>{{this}}</li>
+            {{/each}}
+        </ul>
+    </div>
+{{/if}}
+
+<div class="container mb-6">
+    <div class="columns">
+        <div class="column col-1"></div>
+        <div class="column col-6 mr-4">
+            <form action="" method="post">
+                <div class="form-group mt-3">
+                    <label for="Comment title" class="text-small form-label">Write a title for your comment :</label>
+                    <input type="text" name="commentTitle" class="form-input" placeholder="Title" value="{{commentTitle}}" />
+                </div>
+
+                <div class="form-group mt-3">
+                    <label for="Note content" class="text-small form-label">Write your comment :
+                        <span class="text-gray">(120 characters max.) :</span></label>
+                    <textarea type="Textarea" name="commentContent" maxlength="120" class="form-input" placeholder="Content">{{commentContent}}</textarea>
+                </div>
+
+                <input type="submit" class="btn btn-primary px-3" value="Add comment" />
+            </form>
+        </div>
+        <div class="column col-4">
+            <img src="/images/undraw_add_notes.svg" alt="" class="img-responsive ml-4" />
+        </div>
+    </div>
+</div>

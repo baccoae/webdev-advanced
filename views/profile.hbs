@@ -1,0 +1,57 @@
+{{#if loginError.length}}
+    <p>{{loginError}}</p>
+{{else}}
+    <div class="container mb-6">
+        <div class="columns">
+            <div class="column col-1"></div>
+            <div class="column col-10">
+                <h1 class="my-4">Hello <span class="bg-primary text-light px-2 text-italic">{{username}}</span> !</h1>
+
+                <div class="bg-gray p-3 s-rounded mb-4">
+                    <h2>Your <span class="text-primary">Collections</span></h2>
+                    <div class="container">
+                        <div class="columns">
+                            {{#if collections.length}}
+                                <ul>
+                                    {{#each collections}}
+                                        <li><a href="/collections/{{collectionId}}">{{collectionTitle}}</a></li>
+                                    {{/each}}
+                                </ul>
+                            {{else}}
+                                <p class="text-gray">You haven't created any collection yet ! You can
+                                    <a href="/collections/create-collection">create one now !</a></p>
+                            {{/if}}
+                        </div>
+                    </div>
+                </div>
+
+                <div class="bg-gray p-3 s-rounded mb-4">
+                    <h2>Your <span class="text-primary">Notes</span></h2>
+                    <div class="container">
+                        <div class="columns">
+                            {{#if notes.length}}
+                                {{#each notes}}
+                                    <div class="column col-3">
+                                        <a href="/notes/{{noteId}}">
+                                            <div class="card my-2">
+                                                <div class="card-image card-h-small">
+                                                    <img src="{{noteImage}}" class="img-responsive image-fit" />
+                                                </div>
+                                                <div class="card-header">
+                                                    <div class="card-title h6">{{noteTitle}}</div>
+                                                </div>
+                                            </div>
+                                        </a>
+                                    </div>
+                                {{/each}}
+                            {{else}}
+                                <p class="text-gray">You haven't created any note yet ! You can <a href="/notes/create-note">create one now !</a></p>
+                            {{/if}}
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="column col-1"></div>
+        </div>
+    </div>
+{{/if}}

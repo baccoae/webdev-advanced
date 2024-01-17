@@ -1,0 +1,35 @@
+<div class="hero">
+    <div class="hero-body">
+        <h1 class="text-center">Browse
+            <span class="text-italic bg-primary text-light px-2">Notes</span>
+        </h1>
+    </div>
+</div>
+
+<div class="container mb-6">
+    <div class="columns">
+        {{#if notes.length}}
+            {{#each notes}}
+                <div class="column col-4">
+                    <a href="/notes/{{noteId}}">
+                        <div class="card my-2">
+                            <div class="card-image card-h">
+                                <img src="{{noteImage}}" alt="{{noteTitle}}" class="img-responsive image-fit" />
+                            </div>
+                            <div class="card-header">
+                                <div class="card-title h5">{{noteTitle}}</div>
+                                <div class="card-subtitle text-gray text-small">uploaded by
+                                    <u class="text-italic">{{noteAuthor}}</u></div>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+            {{/each}}
+
+        {{else}}
+            <div class="p-centered column col-4">
+                <p class="text-center">There are no notes for now, come back later or create a note !</p>
+            </div>
+        {{/if}}
+    </div>
+</div>

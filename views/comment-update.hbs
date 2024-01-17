@@ -1,0 +1,34 @@
+<h1>Update the <span class="bg-primary text-light px-2 text-italic">comment</span></h1>
+
+{{#if validationErrors.length}}
+    <div class="toast toast-error mb-4">
+        <p>Could not update the comment because of the following errors : </p>
+        <ul>
+            {{#each validationErrors}}
+                <li>{{this}}</li>
+            {{/each}}
+        </ul>
+    </div>
+{{/if}}
+
+<div class="container">
+    <div class="columns">
+        <div class="column col-1"></div>
+        <div class="column col-6">
+            <form action="/comment-update/{{commentId}}" method="post">
+                <div class="form-group mt-4">
+                    <label for="comment title update" class="text-small form-label">New title :</label>
+                    <input type="text" name="newCommentTitle" id="title" class="form-input mb-4" value="{{commentTitle}}" />
+                </div>
+
+                <div class="form-group mt-4">
+                    <label for="comment description update" class="text-small form-label">New description :</label>
+                    <input type="text" name="newCommentContent" id="description" class="form-input mb-4" value="{{commentContent}}" />
+                </div>
+
+                <input type="submit" class="btn btn-primary px-3" value="Update comment" />
+            </form>
+        </div>
+        <div class="column col-1"></div>
+    </div>
+</div>

@@ -1,0 +1,25 @@
+<div class="hero">
+    <div class="hero-body">
+        <h1 class="text-center">Browse
+            <span class="text-italic bg-primary text-light px-2">Collections</span>
+        </h1>
+    </div>
+</div>
+
+<dl class="container mb-6">
+    {{#if collections.length}}
+        {{#each collections}}
+            <a href="/collections/{{collectionId}}">
+                <dt>
+                    <h4 class="float-left mr-2">{{collectionTitle}}</h4>
+                    <span class="text-tiny text-muted">created by <u class="text-italic">{{collectionAuthor}}</u></span>
+                </dt>
+            </a>
+        {{/each}}
+
+    {{else}}
+        <div class="p-centered">
+            <p class="text-center">There are no collections for now, come back later or create a collection !</p>
+        </div>
+    {{/if}}
+</dl>

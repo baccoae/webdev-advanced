@@ -1,0 +1,25 @@
+{{#if collections}}
+    <div class="hero">
+        <div class="hero-body">
+            <h1 class="text-center">Choose a
+                <span class="text-italic bg-primary text-light px-2">Collection</span>
+            </h1>
+        </div>
+    </div>
+
+    <form action="" method="post" class="form-group">
+        <label class="form-label h2 text-primary mb-4">All collections</label>
+        {{#each collections}}
+            <label class="form-radio ml-4 h5 mb-2">
+                <input type="radio" name="selectedCollection" value="{{collectionId}}" />
+                <i class="form-icon"></i>
+                {{collectionTitle}}
+            </label>
+        {{/each}}
+
+        <input class="btn mt-4 px-4 bg-primary" type="submit" value="Add to this collection" />
+    </form>
+
+{{else}}
+    <p>You havent created any collections yet, <a href="/collections/create-collection">create one now !</a></p>
+{{/if}}

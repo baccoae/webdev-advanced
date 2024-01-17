@@ -1,0 +1,63 @@
+{{#if loginError.length}}
+    <div class="toast toast-error mb-4">
+        <p>The following errors occured : </p>
+        <ul>
+            {{#each loginError}}
+                <li>{{this}}</li>
+            {{/each}}
+        </ul>
+    </div>
+{{/if}}
+
+<div class="hero">
+    <div class="hero-body">
+        <h1 class="text-center text-italic text-primary px-2">{{collection.collectionTitle}}</h1>
+        <p class="text-center">{{collection.collectionDesc}}</p>
+    </div>
+</div>
+
+{{#if collection}}
+    <div class="container">
+        <div class="columns">
+            <div class="column col-auto">
+                <a href="/collection-update/{{collection.collectionId}}" class="btn mr-2" type="submit" value="Update collection">Update collection</a>
+                <form class="float-right" action="/collection-delete/{{collection.collectionId}}" method="post">
+                    <input class="btn btn-error" type="submit" value="Delete collection" />
+                </form>
+            </div>
+            <div class="column col-2"></div>
+        </div>
+    </div>
+
+    <div class="container mb-6">
+        <div class="columns">
+            {{#if notes.length}}
+                {{#each notes}}
+                    <div class="column col-4">
+                        <a href="/notes/{{noteId}}">
+                            <div class="card my-2">
+                                <div class="card-image card-h">
+                                    <img src="{{noteImage}}" class="img-responsive image-fit" />
+                                </div>
+                                <div class="card-header">
+                                    <div class="card-title h5">{{noteTitle}}</div>
+                                    <div class="card-subtitle text-gray text-small">uploaded by
+                                        <u class="text-italic">{{noteAuthor}}</u></div>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                {{/each}}
+
+            {{else}}
+                <div class="p-centered column col-4">
+                    <p class="text-center">This collection is empty for now.</p>
+                </div>
+            {{/if}}
+        </div>
+    </div>
+{{else}}
+    <div class="p-centered column col-4">
+        <p class="text-center">Sorry, this collection does not exist.</p>
+    </div>
+{{/if}}

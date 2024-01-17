@@ -1,0 +1,30 @@
+<h1 class="text-center">
+    <span class="text-italic bg-primary text-light px-2">Log</span>
+    In
+</h1>
+
+{{#if failedToLogIn}}
+    <div class="toast toast-error mb-4">
+        <p>Your username and/or password are incorrect.</p>
+    </div>
+{{/if}}
+
+<div class="container">
+    <div class="columns">
+        <div class="column col-4"></div>
+        <div class="column col-4">
+            <form action="/log-in" method="post">
+                <div class="form-group mt-4">
+                    <label for="Note title" class="form-label">Username</label>
+                    <input type="text" name="username" id="username" class="form-input mb-4" value="{{enteredUsername}}" />
+                </div>
+                <div class="form-group mt-4">
+                    <label for="Note title" class="form-label">Password</label>
+                    <input type="password" name="password" id="password" class="form-input mb-4" value="{{enteredPassword}}" />
+                </div>
+                <input type="submit" class="btn btn-primary px-4" value="Login" />
+            </form>
+        </div>
+        <div class="column col-4"></div>
+    </div>
+</div>
