@@ -208,3 +208,42 @@ footer {
   object-fit: cover;
 }
 
+.header-style {
+  text-decoration: none;
+  font-family: sans-serif;
+  font-size: 3em;
+  font-weight: 1600;
+  text-transform: uppercase;
+}
+
+.hero {
+  position: relative;
+  display: flex;
+  min-height: 100vh;
+  align-items: center;
+  padding: 0 0 0 2.5vw;
+}
+
+.jkpg-span {
+  text-decoration: none;
+  font-family: sans-serif;
+  font-size: 3em;
+  font-weight: 5000;
+  text-transform: uppercase;
+}
+
+.city-span {
+  text-decoration: none;
+  font-family: sans-serif;
+  font-size: 1em;
+  font-weight: 5000;
+  text-transform: uppercase;
+}
+
+.sub-text {
+  text-decoration: none;
+  font-family: sans-serif;
+  font-size: 1em;
+  font-weight: 5000;
+  text-transform: uppercase;
+}
