@@ -3,6 +3,17 @@
   padding: 0;
 }
 
+h1 {
+  font-size: 3em;
+  font-family: "Instrument Serif", serif;
+}
+
+p {
+  font-family: "Work Sans", sans-serif;
+  letter-spacing: -0.8px;
+  font-size: 16px;
+}
+
 header {
   position: fixed;
   display: flex;
@@ -19,6 +30,7 @@ header {
   justify-content: space-between;
   background: #000;
   gap: 70px;
+  z-index: 999;
 }
 header .header-logo {
   color: #fff;
@@ -36,7 +48,7 @@ header .navbar {
 header .navbar a {
   color: #fff;
   text-decoration: none;
-  font-family: sans-serif;
+  font-family: "Work Sans", sans-serif;
   font-size: 0.7em;
   font-weight: 500;
   text-transform: uppercase;
@@ -45,9 +57,62 @@ header .navbar a:hover {
   text-decoration: underline;
 }
 
+.container {
+  padding: 2em;
+  box-sizing: border-box;
+}
+
+.grid-test {
+  position: fixed;
+  top: 0;
+  z-index: -1;
+  width: 100vw;
+  height: 100vh;
+}
+.grid-test .gridline {
+  background: #e1e1e1;
+  position: absolute;
+}
+.grid-test .gridline:nth-child(1) {
+  width: 1px;
+  height: 100%;
+  left: 2em;
+}
+.grid-test .gridline:nth-child(2) {
+  width: 1px;
+  height: 100%;
+  right: 2em;
+}
+.grid-test .gridline:nth-child(3) {
+  width: 100%;
+  height: 1px;
+  top: 2em;
+}
+.grid-test .gridline:nth-child(4) {
+  width: 100%;
+  height: 1px;
+  bottom: 2em;
+}
+.grid-test .gridline:nth-child(5) {
+  width: 1px;
+  height: 100%;
+  left: 0;
+  right: 0;
+  transform: translateX(-1em);
+  margin: 0 auto;
+}
+.grid-test .gridline:nth-child(6) {
+  width: 1px;
+  height: 100%;
+  left: 0;
+  right: 0;
+  transform: translateX(1em);
+  margin: 0 auto;
+}
+
 .header-style {
   text-decoration: none;
-  font-family: sans-serif;
+  font-family: "Work Sans", sans-serif;
   font-size: 3em;
   font-weight: 1600;
   text-transform: uppercase;
@@ -63,7 +128,7 @@ header .navbar a:hover {
 
 .jkpg-span {
   text-decoration: none;
-  font-family: sans-serif;
+  font-family: "Work Sans", sans-serif;
   font-size: 3em;
   font-weight: 5000;
   text-transform: uppercase;
@@ -71,7 +136,7 @@ header .navbar a:hover {
 
 .city-span {
   text-decoration: none;
-  font-family: sans-serif;
+  font-family: "Work Sans", sans-serif;
   font-size: 1em;
   font-weight: 5000;
   text-transform: uppercase;
@@ -79,7 +144,7 @@ header .navbar a:hover {
 
 .sub-text {
   text-decoration: none;
-  font-family: sans-serif;
+  font-family: "Work Sans", sans-serif;
   font-size: 1em;
   font-weight: 5000;
   text-transform: uppercase;
@@ -91,9 +156,191 @@ header .navbar a:hover {
   border-radius: 2px;
 }
 
+.list {
+  display: flex;
+  flex-direction: column;
+  margin-top: 50px;
+}
+.list .card .card-content {
+  display: flex;
+  flex-direction: row;
+  align-items: baseline;
+  text-decoration: none;
+  color: #000;
+}
+.list .card .card-content span {
+  font-family: "Work Sans", sans-serif;
+  font-size: 0.8em;
+  margin-right: 5px;
+}
+.list .card .card-content .card-header {
+  font-family: "Instrument Serif", serif;
+  font-size: 32px;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  gap: 64px;
+  margin-top: 64px;
+}
+form .form-item {
+  display: flex;
+  flex-direction: column;
+  min-width: 50%;
+}
+form .form-item > label {
+  font-family: "Work Sans", sans-serif;
+  letter-spacing: -0.8px;
+  text-transform: uppercase;
+  font-size: 0.8em;
+  margin-bottom: 8px;
+}
+form .form-item input[type=text],
+form .form-item input[type=url],
+form .form-item input[type=password] {
+  border: none;
+  border-bottom: solid #e1e1e1 1px;
+  background: none;
+  font-family: "Instrument Serif", serif;
+  font-size: 2.5em;
+  color: #000;
+}
+form .form-item input[type=text]:focus,
+form .form-item input[type=url]:focus,
+form .form-item input[type=password]:focus {
+  border-bottom: solid #000 1px;
+  outline: none;
+}
+form .form-item input[type=text]::placeholder,
+form .form-item input[type=url]::placeholder,
+form .form-item input[type=password]::placeholder {
+  color: #e1e1e1;
+}
+form .form-item .radio-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  margin-top: 16px;
+}
+form .form-item .radio-container .radio-item {
+  display: flex;
+  flex-direction: row-reverse;
+  align-items: center;
+  font-family: "Instrument Serif", serif;
+  font-size: 2em;
+  /* Create the indicator (the dot/circle - hidden when not checked) */
+  /* Show the indicator (dot/circle) when checked */
+  /* Style the indicator (dot/circle) */
+}
+form .form-item .radio-container .radio-item input {
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+  height: 0;
+  width: 0;
+}
+form .form-item .radio-container .radio-item input:checked ~ .radio {
+  opacity: 1;
+}
+form .form-item .radio-container .radio-item .radio {
+  border: solid #000 1px;
+  opacity: 0.2;
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-right: 8px;
+}
+form .form-item .radio-container .radio-item .radio:after {
+  content: "";
+  position: absolute;
+  display: none;
+}
+form .form-item .radio-container .radio-item input:checked ~ .radio:after {
+  display: block;
+}
+form .form-item .radio-container .radio-item .radio:after {
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  background: #000;
+}
+form .form-item select {
+  border: none;
+  border-bottom: solid #e1e1e1 1px;
+  background: none;
+  font-family: "Instrument Serif", serif;
+  font-size: 1.25em;
+  color: #000;
+}
+form .form-item select:focus {
+  border-bottom: solid #000 1px;
+  outline: none;
+}
+
+.btn {
+  width: fit-content;
+  border: none;
+  text-transform: uppercase;
+  padding: 1em 5em;
+  cursor: pointer;
+  font-family: "Work Sans", sans-serif;
+  align-self: center;
+}
+.btn.primary {
+  background: #000;
+  color: #fff;
+}
+
+.half-container {
+  position: relative;
+  width: calc(50% - (2em / 2));
+}
+
+.store-header {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  align-items: baseline;
+  justify-content: space-between;
+  margin-bottom: 64px;
+}
+
+.website-link {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 8px;
+  text-decoration: none;
+}
+.website-link:hover {
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+.website-link span {
+  font-family: "Work Sans", sans-serif;
+  letter-spacing: -0.8px;
+  text-transform: uppercase;
+  font-size: 0.8em;
+  color: #000;
+}
+.website-link img {
+  width: 8px;
+}
+
 footer {
   display: flex;
   flex-direction: row;
-  padding: 10px 2em 10px 10em;
-  font-family: sans-serif;
+  padding: 0 2em;
+  position: absolute;
+  bottom: 2em;
+}
+footer span {
+  font-family: "Work Sans", sans-serif;
+  letter-spacing: -0.8px;
+  font-size: 14px;
 }
