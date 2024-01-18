@@ -5,38 +5,43 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         {{! <link rel="stylesheet" href="/spectre.css" />
         <link rel="stylesheet" href="/spectre-icons.css" /> }}
+        <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet" />
+        <link href="https://fonts.googleapis.com/css2?family=Work+Sans:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet" />
         <link rel="stylesheet" href="/layout.css" />
         <title>JKPG City</title>
     </head>
-    <body class="full-height">
+    <body>
         <header class="header">
             <a class="header-logo" href="/">jkpgcity.</a>
             <section class="navbar">
                 <a href="/stores">stores</a>
                 {{! <a href="/collections">Collections</a> }}
-                <a href="/stores/create-store">Add Store</a>
                 {{! <a href="/collections/create-collection">Create a collection</a> }}
                 {{#if isLoggedIn}}
+                    <a href="/stores/create-store">Add Store</a>
                     <a href="/profile">account</a>
-                    <a class="btn" href="/log-out">Log out<i class="icon ml-2 icon-shutdown"></i></a>
+                    <a href="/log-out">Log out<i class="icon ml-2 icon-shutdown"></i></a>
                 {{else}}
-                    <a class="btn" href="/log-in">Log in<i class="icon ml-2 icon-people"></i></a>
+                    <a href="/log-in">Log in<i class="icon ml-2 icon-people"></i></a>
                 {{/if}}
             </section>
         </header>
 
+        <div class="grid-test">
+            <div class="gridline"></div>
+            <div class="gridline"></div>
+            <div class="gridline"></div>
+            <div class="gridline"></div>
+            <div class="gridline"></div>
+            <div class="gridline"></div>
+        </div>
+
         <div class="container">
-            <div class="columns">
-                <div class="column col-1"></div>
-                <div class="column col-10">
-                    {{{body}}}
-                </div>
-                <div class="column col-1"></div>
-            </div>
+            {{{body}}}
         </div>
 
         <footer>
-            <p>© codesigners — 2024 — jkpgcity</p>
+            <span>© codesigners — 2024 — jkpgcity</span>
         </footer>
     </body>
 </html>
