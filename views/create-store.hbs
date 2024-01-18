@@ -1,7 +1,6 @@
-<h1 class="mb-4">Create your own <span class="bg-primary text-italic text-light px-2">Note</span></h1>
 {{#if validationErrors.length}}
-    <div class="toast toast-error mb-4">
-        <p>Could not create a new note because of the following errors : </p>
+    <div>
+        <p>Could not add this store because of the following errors : </p>
         <ul>
             {{#each validationErrors}}
                 <li>{{this}}</li>
@@ -9,27 +8,45 @@
         </ul>
     </div>
 {{/if}}
-<div class="container mb-6">
-    <div class="columns">
-        <div class="column col-1"></div>
-        <div class="column col-6 mr-4">
-            <form action="" method="post">
-                <div class="form-group mt-3">
-                    <label for="Note title" class="text-small form-label">Name ?</label>
-                    <input type="text" name="name" class="form-input" placeholder="Title" value="{{storeName}}" />
-                </div>
+<div class="half-container">
+    <h1>Add a store</h1>
 
-                <div class="form-group mt-3">
-                    <label for="Note title" class="text-small form-label">URL
-                        <span class="text-gray">(120 characters max.) :</span></label>
-                    <textarea type="url" name="url" maxlength="120" class="form-input" placeholder="Description">{{storeURL}}</textarea>
-                </div>
+    <form action="" method="post">
+        <div class="form-item">
+            <label for="Store name">Name</label>
+            <input type="text" name="name" placeholder="Store name" value="{{storeName}}" />
+        </div>
 
-                <input type="submit" class="btn btn-primary px-3" value="Create note" />
-            </form>
+        <div class="form-item">
+            <label for="Store URL">Website's URL</label>
+            <input type="text" name="url" maxlength="120" placeholder="www.example.com" value="{{storeURL}}" />
         </div>
-        <div class="column col-4">
-            <img src="/images/undraw_add_notes.svg" alt="" class="img-responsive ml-4" />
+
+        <div class="form-item">
+            <label for="District">District</label>
+            <select name="district" id="district">
+                <optgroup>
+                    <option value="" disabled selected>Select a District</option>
+                    <option value="Öster">Öster</option>
+                    <option value="Vaster">Väster</option>
+                    <option value="Resecentrum">Resecentrum</option>
+                    <option value="Atollen">Atollen</option>
+                    <option value="Tändsticksområdet">Tändsticksområdet</option>
+                    <option value="Other">Other</option>
+                </optgroup>
+            </select>
+            {{! <div class="radio-container">
+                <label class="radio-item" for="oster">Öster
+                    <input type="radio" name="district" id="oster" checked value="Öster" />
+                    <div class="radio"></div>
+                </label>
+                <label class="radio-item" for="vaster">Väster
+                    <input type="radio" name="district" id="vaster" value="Väster" />
+                    <div class="radio"></div>
+                </label>
+            </div> }}
         </div>
-    </div>
+
+        <input type="submit" class="btn primary" value="Add store" />
+    </form>
 </div>
