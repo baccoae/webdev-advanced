@@ -122,7 +122,7 @@ app.use(function (request, response, next) {
 
 // ERROR HANDLING FUNCTIONS ===============================
 
-function getValidationErrorsForStores(storeName, storeURL) {
+function getValidationErrorsForStores(storeName, storeURL, storeDistrict) {
 	const validationErrors = []
 
 	if (storeName.length == 0) {
@@ -133,16 +133,16 @@ function getValidationErrorsForStores(storeName, storeURL) {
 		validationErrors.push("The title cannot be longer than" + MAX_NOTE_TITLE_LENGTH + "characters.")
 	}
 
-	// if (noteImage.length > 0 && noteImage.slice(0, 33) != "https://images.unsplash.com/photo") {
-	// 	validationErrors.push("The image link must come from Unsplash.com")
-	// }
-
 	if (storeURL > MAX_NOTE_DESC_LENGTH) {
 		validationErrors.push("The description cannot be longer than" + MAX_NOTE_DESC_LENGTH + "characters.")
 	}
 
 	if (storeURL.length == 0) {
 		validationErrors.push("The image URL cannot be empty")
+	}
+
+	if (storeDistrict == undefined) {
+		validationErrors.push('Please choose a District from the list. If your district is not specified, please choose "Other".')
 	}
 
 	return validationErrors
@@ -243,19 +243,17 @@ app.get('/stores/create-store', function (request, response) {
 app.post("/stores/create-store", function (request, response) {
 	const storeName = request.body.name
 	const storeURL = request.body.url
-	// const storeImage = request.body.src
-	// const storeAuthor = request.session.username
-	// const storeDesc = request.body.desc
+	const storeDistrict = request.body.district
 
-	const validationErrors = getValidationErrorsForStores(storeName, storeURL)
+	const validationErrors = getValidationErrorsForStores(storeName, storeURL, storeDistrict)
 
 	if (!request.session.isLoggedIn) {
 		validationErrors.push("You have to be logged in to add a store.")
 	}
 
 	if (validationErrors.length == 0) {
-		const query = "INSERT INTO stores (storeName, storeURL) VALUES (?, ?)"
-		const values = [storeName, storeURL]
+		const query = "INSERT INTO stores (storeName, storeURL, storeDistrict) VALUES (?, ?, ?)"
+		const values = [storeName, storeURL, storeDistrict]
 
 		db.run(query, values, function (error) {
 			if (error) {
@@ -271,6 +269,7 @@ app.post("/stores/create-store", function (request, response) {
 			validationErrors,
 			storeName,
 			storeURL,
+			storeDistrict,
 			storeId: request.params.id
 		}
 
