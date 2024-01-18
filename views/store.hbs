@@ -1,25 +1,24 @@
-<div class="container mt-4">
-    <div class="columns">
-        <div class="column col-1"></div>
-        <div class="column col-10 mb-6">
-
-            {{#if loginError.length}}
-                <div class="toast toast-error mb-4">
-                    {{#each loginError}}
-                        <p>{{this}}</p>
-                    {{/each}}
-                </div>
-
-            {{else}}
-                {{#if store}}
-                    <h1 class="mt-3 mb-1">{{store.storeName}}</h1>
-                    <p class="text-large">{{store.storeURL}}</p>
-
-                {{else}}
-                    <p>Sorry, this store does not exist</p>
-                {{/if}}
-            {{/if}}
+<div class="half-container">
+    {{#if loginError.length}}
+        <div class="toast toast-error mb-4">
+            {{#each loginError}}
+                <p>{{this}}</p>
+            {{/each}}
         </div>
-        <div class="column col-1"></div>
-    </div>
+
+    {{else}}
+        {{#if store}}
+            <div class="store-header">
+                <h1>{{store.storeName}}</h1>
+                <a class="website-link" href="https://www.{{store.storeURL}}" target="_blank">
+                    <span>Visit website</span>
+                    <img src="/images/arrow.svg" alt="" />
+                </a>
+            </div>
+            <p>District: {{store.storeDistrict}}</p>
+
+        {{else}}
+            <p>Sorry, this store does not exist</p>
+        {{/if}}
+    {{/if}}
 </div>

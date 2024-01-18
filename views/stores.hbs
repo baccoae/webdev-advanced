@@ -1,25 +1,20 @@
-<div class="hero">
-    <div class="hero-body">
-        <h1 class="text-center">Find stores in JKPG</h1>
-    </div>
-</div>
+<div class="half-container">
+    <h1 class="text-center">All stores in JKPG</h1>
 
-<div class="container mb-6">
-    <div class="columns">
+    <div class="list">
         {{#if stores.length}}
             {{#each stores}}
-                <div class="column col-4">
-                    <a href="/stores/{{storeId}}">
-                        <div class="card">
-                            <div class="card-header">{{storeName}}</div>
-                        </div>
+                <div class="card">
+                    <a class="card-content" href="/stores/{{storeId}}">
+                        <span>0{{storeId}}</span>
+                        <div class="card-header">{{storeName}}</div>
                     </a>
                 </div>
             {{/each}}
 
         {{else}}
-            <div class="p-centered column col-4">
-                <p class="text-center">There are no notes for now, come back later or create a note !</p>
+            <div>
+                <p class="text-center">No store is registered for now, please come back later.</p>
             </div>
         {{/if}}
     </div>
