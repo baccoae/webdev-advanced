@@ -1,0 +1,18 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+    name: jkpg-city-deployment
+    namespace: jkpg-city
+spec:
+    replicas: 1
+    selector:
+        matchLabels:
+            app: jkpg-city
+    template:
+        metadata:
+            labels:
+                app: jkpg-city
+        spec:
+            containers:
+                - name: jkpg-city
+                  image: localhost:5000/jkpg-city:latest
