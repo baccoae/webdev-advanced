@@ -1,33 +1,35 @@
 {
-  "name": "moodspiration",
-  "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
-  "scripts": {
-    "docker:build": "docker build -t jkpg-city ."
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/baccoae/moodspiration.git"
-  },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/baccoae/moodspiration/issues"
-  },
-  "homepage": "https://github.com/baccoae/moodspiration#readme",
-  "dependencies": {
-    "bcrypt": "^5.1.0",
-    "body-parser": "^1.20.0",
-    "connect-sqlite3": "^0.9.13",
-    "dotenv": "^16.4.1",
-    "express": "^4.18.1",
-    "express-handlebars": "^6.0.6",
-    "express-session": "^1.17.3",
-    "gsap": "^3.12.5",
-    "pg": "^8.11.3",
-    "spectre.css": "^0.5.9",
-    "sqlite3": "^5.1.1"
-  }
+    "name": "moodspiration",
+    "version": "1.0.0",
+    "description": "",
+    "main": "index.js",
+    "scripts": {
+        "docker:build": "docker build -t jkpg-city .",
+        "k8s:deploy": "kubectl apply -f kubernetes/deployment.yaml -n jkpg-city && kubectl apply -f kubernetes/service.yaml -n jkpg-city && kubectl rollout restart deployment jkpg-city -n jkpg-city",
+        "k8s:run": "kubectl port-forward svc/jkpg-city-service 4000:3000"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/baccoae/moodspiration.git"
+    },
+    "keywords": [],
+    "author": "",
+    "license": "ISC",
+    "bugs": {
+        "url": "https://github.com/baccoae/moodspiration/issues"
+    },
+    "homepage": "https://github.com/baccoae/moodspiration#readme",
+    "dependencies": {
+        "bcrypt": "^5.1.0",
+        "body-parser": "^1.20.0",
+        "connect-sqlite3": "^0.9.13",
+        "dotenv": "^16.4.1",
+        "express": "^4.18.1",
+        "express-handlebars": "^6.0.6",
+        "express-session": "^1.17.3",
+        "gsap": "^3.12.5",
+        "pg": "^8.11.3",
+        "spectre.css": "^0.5.9",
+        "sqlite3": "^5.1.1"
+    }
 }

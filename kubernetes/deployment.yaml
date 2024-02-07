@@ -15,4 +15,7 @@ spec:
         spec:
             containers:
                 - name: jkpg-city
-                  image: localhost:5000/jkpg-city:latest
+                  env:
+                      - name: POSTGRES_HOST
+                        value: "172.17.0.1"
+                  image: localhost:5000/jkpg-city
