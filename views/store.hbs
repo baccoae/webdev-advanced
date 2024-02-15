@@ -1,21 +1,35 @@
+{{#if isLoggedIn}}
+    <div class="admin-menu">
+        <span>Admin :</span>
+        <a href="/edit">Edit this store</a>
+        <form class="float-right" action="/stores/{{store.id}}/delete" method="post">
+            <input type="submit" value="Delete post" />
+        </form>
+    </div>
+{{/if}}
+
 <div class="half-container">
     {{#if loginError.length}}
-        <div class="toast toast-error mb-4">
+        <div>
             {{#each loginError}}
                 <p>{{this}}</p>
             {{/each}}
         </div>
-
     {{else}}
         {{#if store}}
             <div class="store-header">
-                <h1>{{store.storeName}}</h1>
-                <a class="website-link" href="https://www.{{store.storeURL}}" target="_blank">
+                <h1>{{store.name}}</h1>
+                <a class="website-link" href="https://www.{{store.url}}" target="_blank">
                     <span>Visit website</span>
                     <img src="/images/arrow.svg" alt="" />
                 </a>
             </div>
-            <p>District: {{store.storeDistrict}}</p>
+            {{#if store.district}}
+                <p>District: {{store.district}}</p>
+
+            {{else}}
+                <p>District: Other</p>
+            {{/if}}
 
         {{else}}
             <p>Sorry, this store does not exist</p>

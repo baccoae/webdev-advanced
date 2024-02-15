@@ -1,21 +1,21 @@
-<div class="half-container">
-    <h1 class="text-center">All stores in JKPG</h1>
+{{! <div class="half-container"> }}
+<h1 class="text-center">All stores in JKPG</h1>
 
-    <div class="list">
-        {{#if stores.length}}
-            {{#each stores}}
-                <div class="card">
-                    <a class="card-content" href="/stores/{{storeId}}">
-                        <span>0{{storeId}}</span>
-                        <div class="card-header">{{storeName}}</div>
-                    </a>
-                </div>
-            {{/each}}
+<ol class="list">
+    {{#if stores.length}}
+        {{#each stores}}
+            <li class="card">
+                <a class="card-content" href="/stores/{{id}}">
+                    {{!-- <span>0{{id}}</span> --}}
+                    <div class="card-header">{{name}}</div>
+                </a>
+            </li>
+        {{/each}}
 
-        {{else}}
-            <div>
-                <p class="text-center">No store is registered for now, please come back later.</p>
-            </div>
-        {{/if}}
-    </div>
-</div>
+    {{else}}
+        <div>
+            <p class="text-center">No store is registered for now, please come back later.</p>
+        </div>
+    {{/if}}
+</ol>
+{{! </div> }}
