@@ -1,6 +1,19 @@
+// FONT VARIABLES
 $font-serif: "Instrument Serif", serif;
 $font-sans: "Work Sans", sans-serif;
 $reduce-leading: -0.8px;
+
+// SIZES VARIABLES
+$gutter-width: 2em;
+
+// COLORS
+$black: #000;
+$warning: #ff9f44;
+$error: #e12525;
+
+// MEDIA QUERIES VARIABLES
+$ipad: "screen and (max-width : 960px)";
+$mobile: "screen and (max-width : 640px)";
 
 * {
     margin: 0;
@@ -32,7 +45,8 @@ header {
     margin: auto;
     box-sizing: border-box;
     justify-content: space-between;
-    background: #000;
+    background: rgba($black, 0.5);
+    backdrop-filter: blur(10px);
     gap: 70px;
     z-index: 999;
 
@@ -65,9 +79,61 @@ header {
     }
 }
 
+.admin-menu {
+    position: fixed;
+    // background: $black;
+    border: 1px solid $black;
+    top: 2em;
+    right: 2em;
+    padding: 10px 20px;
+    display: flex;
+    justify-content: space-between;
+    gap: 20px;
+    box-sizing: border-box;
+
+    font-size: 0.7em;
+    font-weight: 500;
+    text-transform: uppercase;
+    font-family: $font-sans;
+
+    span {
+        font-family: $font-sans;
+        color: $black;
+        font-weight: 500;
+        text-transform: uppercase;
+    }
+
+    form {
+        margin: 0;
+        width: fit-content;
+    }
+
+    input {
+        border: none;
+        background: none;
+        font-family: $font-sans;
+        font-weight: 500;
+        text-transform: uppercase;
+        font-size: 1em;
+        width: min-content;
+        cursor: pointer;
+        color: $error;
+
+        &:hover {
+            text-decoration: underline;
+        }
+    }
+
+    a {
+        color: $black;
+        text-decoration: none;
+    }
+}
+
 .container {
     padding: 2em;
     box-sizing: border-box;
+    min-height: 100%;
 }
 
 .grid-test {
@@ -168,27 +234,52 @@ header {
     border-radius: 2px;
 }
 .list {
-    display: flex;
-    flex-direction: column;
-    margin-top: 50px;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    column-gap: 2em;
+    margin-top: 100px;
+    margin-bottom: 100px;
+
+    @media #{$mobile} {
+        grid-template-columns: 1fr;
+    }
 
     .card {
+        list-style-position: inside;
+        list-style: none;
+        width: 100%;
+        position: relative;
+        overflow: hidden;
+        // list-style: decimal-leading-zero;
+
+        &::marker {
+            font-family: $font-sans;
+            font-size: 0.8em;
+            // margin-right: 5px;
+        }
+
         .card-content {
             display: flex;
             flex-direction: row;
             align-items: baseline;
             text-decoration: none;
-            color: #000;
+            color: $black;
+            position: relative;
+            width: fit-content;
 
-            span {
-                font-family: $font-sans;
-                font-size: 0.8em;
-                margin-right: 5px;
+            &:hover {
+                text-decoration: underline;
+                text-underline-offset: 3px;
+                text-decoration-thickness: 1px;
             }
 
             .card-header {
                 font-family: $font-serif;
                 font-size: 32px;
+
+                @media #{$mobile} {
+                    font-size: 26px;
+                }
             }
         }
     }
@@ -222,10 +313,10 @@ form {
             background: none;
             font-family: $font-serif;
             font-size: 2.5em;
-            color: #000;
+            color: $black;
 
             &:focus {
-                border-bottom: solid #000 1px;
+                border-bottom: solid $black 1px;
                 outline: none;
             }
 
@@ -260,7 +351,7 @@ form {
                 }
 
                 .radio {
-                    border: solid #000 1px;
+                    border: solid $black 1px;
                     opacity: 0.2;
                     width: 22px;
                     height: 22px;
@@ -288,7 +379,7 @@ form {
                     width: 22px;
                     height: 22px;
                     border-radius: 50%;
-                    background: #000;
+                    background: $black;
                 }
             }
         }
@@ -299,10 +390,10 @@ form {
             background: none;
             font-family: $font-serif;
             font-size: 1.25em;
-            color: #000;
+            color: $black;
 
             &:focus {
-                border-bottom: solid #000 1px;
+                border-bottom: solid $black 1px;
                 outline: none;
             }
         }
@@ -319,7 +410,7 @@ form {
     align-self: center;
 
     &.primary {
-        background: #000;
+        background: $black;
         color: #fff;
     }
 }
@@ -355,7 +446,7 @@ form {
         letter-spacing: $reduce-leading;
         text-transform: uppercase;
         font-size: 0.8em;
-        color: #000;
+        color: $black;
     }
 
     img {
@@ -363,12 +454,25 @@ form {
     }
 }
 
+.toast {
+    width: 100%;
+    padding: 10px 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    &.error {
+        background: $error;
+        color: #fff;
+    }
+}
+
 footer {
     display: flex;
     flex-direction: row;
     padding: 0 2em;
-    position: absolute;
-    bottom: 2em;
+    position: relative;
+    bottom: 3em;
 
     span {
         font-family: $font-sans;

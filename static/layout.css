@@ -28,7 +28,8 @@ header {
   margin: auto;
   box-sizing: border-box;
   justify-content: space-between;
-  background: #000;
+  background: rgba(0, 0, 0, 0.5);
+  backdrop-filter: blur(10px);
   gap: 70px;
   z-index: 999;
 }
@@ -57,9 +58,54 @@ header .navbar a:hover {
   text-decoration: underline;
 }
 
+.admin-menu {
+  position: fixed;
+  border: 1px solid #000;
+  top: 2em;
+  right: 2em;
+  padding: 10px 20px;
+  display: flex;
+  justify-content: space-between;
+  gap: 20px;
+  box-sizing: border-box;
+  font-size: 0.7em;
+  font-weight: 500;
+  text-transform: uppercase;
+  font-family: "Work Sans", sans-serif;
+}
+.admin-menu span {
+  font-family: "Work Sans", sans-serif;
+  color: #000;
+  font-weight: 500;
+  text-transform: uppercase;
+}
+.admin-menu form {
+  margin: 0;
+  width: fit-content;
+}
+.admin-menu input {
+  border: none;
+  background: none;
+  font-family: "Work Sans", sans-serif;
+  font-weight: 500;
+  text-transform: uppercase;
+  font-size: 1em;
+  width: min-content;
+  cursor: pointer;
+  color: #e12525;
+}
+.admin-menu input:hover {
+  text-decoration: underline;
+}
+.admin-menu a {
+  color: #000;
+  text-decoration: none;
+}
+
 .container {
   padding: 2em;
   box-sizing: border-box;
+  min-height: 100%;
 }
 
 .grid-test {
@@ -157,9 +203,27 @@ header .navbar a:hover {
 }
 
 .list {
-  display: flex;
-  flex-direction: column;
-  margin-top: 50px;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  column-gap: 2em;
+  margin-top: 100px;
+  margin-bottom: 100px;
+}
+@media screen and (max-width : 640px) {
+  .list {
+    grid-template-columns: 1fr;
+  }
+}
+.list .card {
+  list-style-position: inside;
+  list-style: none;
+  width: 100%;
+  position: relative;
+  overflow: hidden;
+}
+.list .card::marker {
+  font-family: "Work Sans", sans-serif;
+  font-size: 0.8em;
 }
 .list .card .card-content {
   display: flex;
@@ -167,15 +231,22 @@ header .navbar a:hover {
   align-items: baseline;
   text-decoration: none;
   color: #000;
+  position: relative;
+  width: fit-content;
 }
-.list .card .card-content span {
-  font-family: "Work Sans", sans-serif;
-  font-size: 0.8em;
-  margin-right: 5px;
+.list .card .card-content:hover {
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  text-decoration-thickness: 1px;
 }
 .list .card .card-content .card-header {
   font-family: "Instrument Serif", serif;
   font-size: 32px;
+}
+@media screen and (max-width : 640px) {
+  .list .card .card-content .card-header {
+    font-size: 26px;
+  }
 }
 
 form {
@@ -332,12 +403,24 @@ form .form-item select:focus {
   width: 8px;
 }
 
+.toast {
+  width: 100%;
+  padding: 10px 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.toast.error {
+  background: #e12525;
+  color: #fff;
+}
+
 footer {
   display: flex;
   flex-direction: row;
   padding: 0 2em;
-  position: absolute;
-  bottom: 2em;
+  position: relative;
+  bottom: 3em;
 }
 footer span {
   font-family: "Work Sans", sans-serif;
