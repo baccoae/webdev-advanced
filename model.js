@@ -58,6 +58,20 @@ class ModelClass {
         return rows;
     }
 
+    async getStoreById(storeId) {
+        const { rows } = await this.connection.query(`
+            SELECT * FROM stores WHERE id = $1
+        `, [storeId]);
+        return rows[0];
+    }
+
+    async deleteStore(storeId) {
+        await this.connection.query(`
+        DELETE FROM public.stores
+        WHERE id = $1
+        `, [storeId])
+    }
+
 
 }
 
@@ -105,13 +119,6 @@ class ModelClass {
 //         SET url = $1, district = $2
 //         WHERE id = $3
 //         `, [url, district, storeId])
-//     }
-
-//     async deleteStore(storeId) {
-//         await this.client.query(`
-//         DELETE FROM public.stores
-//         WHERE id = $1
-//         `, [storeId])
 //     }
 
 //     async addNewStore(body) {
