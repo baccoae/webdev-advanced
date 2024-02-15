@@ -1,8 +1,3 @@
-{{#if failedToLogIn}}
-    <div class="toast toast-error mb-4">
-        <p>Your username and/or password are incorrect.</p>
-    </div>
-{{/if}}
 <div class="half-container">
     <h1>Log In</h1>
     <form action="/log-in" method="post">
@@ -14,6 +9,12 @@
             <label for="Log-In Password">Password</label>
             <input type="password" name="password" id="password" value="{{enteredPassword}}" />
         </div>
+
+        {{#if failedToLogIn}}
+            <div class="toast error">
+                <p>Your username and/or password are incorrect.</p>
+            </div>
+        {{/if}}
 
         <input type="submit" class="btn primary" value="Login" />
     </form>
