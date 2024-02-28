@@ -8,8 +8,6 @@ const bodyParser = require('body-parser')
 const SQLiteStore = require('connect-sqlite3')(expressSession);
 const bcrypt = require('bcrypt')
 
-const data = require('./stores.json')
-
 
 // HARDCODED USER CREDENTIALS =============================
 
@@ -94,7 +92,6 @@ app.engine('hbs', expressHandlebars.engine({
 }))
 
 app.use(
-	express.static("node_modules/spectre.css/dist"),
 	express.static("static")
 )
 
@@ -1007,5 +1004,16 @@ app.get('/profile', function (request, response) {
 app.get("/error/", function (request, response) {
 	response.render("error.hbs")
 })
+
+// POSTGRES CONNECTION  ===================================
+
+// const startServer = async () => {
+// 	const ModelClass = require('./model');
+// 	const Model = new ModelClass();	
+// 	await Model.init()
+// 	app.listen(8080);
+// }
+
+// startServer();
 
 app.listen(8080)

@@ -1,6 +1,7 @@
 const { Pool } = require('pg');
 
 const stores = require('./stores.json');
+const { log } = require('handlebars');
 
 class ModelClass {
     constructor() {
@@ -53,7 +54,7 @@ class ModelClass {
 
     async getStores() {
         const { rows } = await this.connection.query(`
-      SELECT * FROM stores
+      SELECT * FROM stores ORDER BY district ASC
     `);
         return rows;
     }
@@ -65,6 +66,30 @@ class ModelClass {
         return rows[0];
     }
 
+    async checkForStore(storeName) {
+        const res = await this.connection.query(`
+                SELECT * FROM public.stores WHERE name = $1 LIMIT 1
+                `, storeName)
+
+        return checkForStore.rows.length !== 0
+    }
+
+    async addNewStore(body) {
+        const { name, url, district } = body;
+        const text = 'INSERT INTO public.stores(name, url, district) VALUES($1, $2, $3) RETURNING *'
+        const values = [name, url, district]
+
+        try {
+            const { rows } = await this.connection.query(text, values)
+            console.log('Res : ' + rows[0].id)
+            return rows[0].id
+        } catch (e) {
+            console.error(e)
+            setImmediate(() => { throw e })
+        }
+        // }
+    }
+
     async deleteStore(storeId) {
         await this.connection.query(`
         DELETE FROM public.stores
@@ -74,15 +99,6 @@ class ModelClass {
 
 
 }
-
-
-//     async checkForStore(storeName) {
-//         const res = await this.client.query(`
-//         SELECT * FROM public.stores WHERE name = $1 LIMIT 1
-//         `, storeName)
-
-//         return checkForStore.rows.length !== 0
-//     }
 
 //     async setup(storeJSON) {
 

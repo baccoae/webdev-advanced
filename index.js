@@ -3,6 +3,7 @@ const express = require('express');
 const expressHandlebars = require('express-handlebars')
 const expressSession = require('express-session')
 const app = express();
+const Handlebars = require('handlebars')
 const crypto = require('crypto');
 const cookieParser = require('cookie-parser');
 const bodyParser = require('body-parser')
@@ -10,6 +11,7 @@ const path = require('path')
 const port = 3000;
 
 const ModelClass = require('./model.js');
+const { log } = require('console');
 const Model = new ModelClass();
 
 // HARD CODED USERS
@@ -46,9 +48,13 @@ app.use(function (req, res, next) {
     next()
 })
 
+Handlebars.registerPartial('pageNotFound', '{{pageNotFound}}')
+
 app.engine('hbs', expressHandlebars.engine({
     defaultLayout: 'main.hbs',
+    partialsDir: 'views/partials',
 }))
+
 
 app.use(
     express.static("static")
@@ -90,6 +96,24 @@ app.get('/stores', async (req, res) => {
     res.render('stores.hbs', model)
 
 });
+
+app.get('/stores/add', async (req, res) => {
+    if (req.session.isLoggedIn && req.session.username === "admin") {
+        res.render('add-store.hbs');
+    } else {
+        res.status(403).send('Unauthorized');
+    }
+})
+
+app.post('/stores/add', async (req, res) => {
+    if (req.session.isLoggedIn && req.session.username === "admin") {
+        const newStore = await Model.addNewStore(req.body);
+        // const lastID = lastID;
+        console.log("Received : " + newStore);
+        res.redirect(`/stores/${newStore}`);
+    }
+});
+
 
 app.get('/stores/:id', async (req, res) => {
     const storeId = req.params.id;
