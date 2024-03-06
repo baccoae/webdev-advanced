@@ -1,4 +1,4 @@
-let storeItem = document.querySelectorAll(".card-content")
+let storeItem = document.querySelectorAll(".card")
 
 function isInViewport(element) {
     const rect = element.getBoundingClientRect();
@@ -15,10 +15,10 @@ gsap.registerPlugin(ScrollTrigger);
 ScrollTrigger.defaults({ toggleActions: "play none none none" });
 
 for (let i = 0; i < storeItem.length; i++) {
-    let storeBorder = document.getElementsByClassName("store-border");
+    let storeBorder = storeItem[i].children[1];
 
-    if (storeItem[i].getBoundingClientRect().top < window.innerHeight - 50) {
-        gsap.from(storeItem[i], {
+    if (storeItem[i].getBoundingClientRect().top < window.innerHeight - 0) {
+        gsap.from(storeItem[i].children[0], {
             y: "50px",
             duration: .4,
             ease: "power3.out",
@@ -34,7 +34,7 @@ for (let i = 0; i < storeItem.length; i++) {
         })
     }
     else {
-        gsap.from(storeItem[i], {
+        gsap.from(storeItem[i].children[0], {
             y: "50px",
             duration: .4,
             ease: "power3.out",

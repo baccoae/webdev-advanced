@@ -54,7 +54,7 @@ class ModelClass {
 
     async getStores() {
         const { rows } = await this.connection.query(`
-      SELECT * FROM stores ORDER BY district ASC
+      SELECT * FROM stores ORDER BY name ASC
     `);
         return rows;
     }

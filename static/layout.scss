@@ -24,6 +24,7 @@ $mobile: "screen and (max-width : 640px)";
 h1 {
     font-size: 3em;
     font-family: $font-serif;
+    margin-bottom: 100px;
 }
 
 p {
@@ -234,14 +235,25 @@ header {
     padding: 15px;
     border-radius: 2px;
 }
+
+.cat-name {
+    font-family: $font-sans;
+    font-size: 14px;
+    font-weight: 600;
+    text-transform: uppercase;
+    display: inline-block;
+    margin-bottom: 20px;
+    opacity: 0.4;
+}
+
 .list {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     // column-gap: 2em;
-    row-gap: 10px;
-    column-gap: 2em;
-    margin-top: 100px;
-    margin-bottom: 100px;
+    row-gap: 20px;
+    column-gap: $gutter-width;
+    // margin-top: 100px;
+    margin-bottom: 80px;
 
     @media #{$mobile} {
         grid-template-columns: 1fr;
@@ -256,14 +268,13 @@ header {
 
         & .card-border {
             content: "";
-            position: absolute;
-            bottom: 0;
+            position: relative;
+            bottom: 0px;
             left: 0;
             width: 100%;
             height: 1px;
             background: $black;
         }
-        // list-style: decimal-leading-zero;
 
         &::marker {
             font-family: $font-sans;
@@ -275,25 +286,30 @@ header {
             display: flex;
             flex-direction: row;
             align-items: baseline;
+            justify-content: space-between;
             text-decoration: none;
             color: $black;
             position: relative;
             width: fit-content;
-
-            // &:hover {
-            //     text-decoration: underline;
-            //     text-underline-offset: 3px;
-            //     text-decoration-thickness: 1px;
-            // }
+            width: 100%;
 
             .card-header {
                 font-family: $font-sans;
-                font-size: 26px;
-                // border-bottom: solid $black 1px;
+                font-size: 24px;
+                letter-spacing: $reduce-leading;
+                text-overflow: ellipsis;
+                white-space: nowrap;
+                overflow: hidden;
+                width: 95%;
+                line-height: 1.4em;
 
                 @media #{$mobile} {
                     font-size: 26px;
                 }
+            }
+
+            .item-arrow {
+                width: 15px;
             }
         }
     }
