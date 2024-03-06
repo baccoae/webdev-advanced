@@ -72,7 +72,6 @@ app.use(
 app.get('/', async (req, res) => {
     const stores = await Model.getStores();
     res.render('start.hbs')
-    // res.json(stores);
 });
 
 
@@ -108,7 +107,6 @@ app.get('/stores/add', async (req, res) => {
 app.post('/stores/add', async (req, res) => {
     if (req.session.isLoggedIn && req.session.username === "admin") {
         const newStore = await Model.addNewStore(req.body);
-        // const lastID = lastID;
         console.log("Received : " + newStore);
         res.redirect(`/stores/${newStore}`);
     }
@@ -194,29 +192,6 @@ const server = async () => {
         console.log(`Server listening at http://localhost:${port}`);
     });
 };
-
-
-// app.get('/setup', async (req, res) => {
-//     await Model.setup(storeJSON);
-//     res.send("Setup complete!")
-// })
-
-// app.post('/', express.json, async (req, res) => {
-//     const { body } = req;
-//     await Model.addNewStore(body);
-//     res.send("Store added!")
-// })
-
-// app.post('/', express.json, async (req, res) => {
-//     const { storeId } = req.query;
-//     const { url, district } = req.body;
-//     await Model.updateStore(storeId, url, district);
-// })
-
-// app.post('/', express.json, async (req, res) => {
-//     const { storeId } = req.query;
-//     await Model.deleteStore(storeId);
-// })
 
 // POSTGRES CONNECTION  ===================================
 

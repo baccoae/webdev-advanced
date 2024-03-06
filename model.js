@@ -81,13 +81,11 @@ class ModelClass {
 
         try {
             const { rows } = await this.connection.query(text, values)
-            console.log('Res : ' + rows[0].id)
             return rows[0].id
         } catch (e) {
             console.error(e)
             setImmediate(() => { throw e })
         }
-        // }
     }
 
     async deleteStore(storeId) {
