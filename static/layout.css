@@ -9,7 +9,7 @@ h1 {
 }
 
 p {
-  font-family: "Work Sans", sans-serif;
+  font-family: "Epilogue", sans-serif;
   letter-spacing: -0.8px;
   font-size: 16px;
 }
@@ -49,7 +49,7 @@ header .navbar {
 header .navbar a {
   color: #fff;
   text-decoration: none;
-  font-family: "Work Sans", sans-serif;
+  font-family: "Epilogue", sans-serif;
   font-size: 0.7em;
   font-weight: 500;
   text-transform: uppercase;
@@ -71,10 +71,10 @@ header .navbar a:hover {
   font-size: 0.7em;
   font-weight: 500;
   text-transform: uppercase;
-  font-family: "Work Sans", sans-serif;
+  font-family: "Epilogue", sans-serif;
 }
 .admin-menu span {
-  font-family: "Work Sans", sans-serif;
+  font-family: "Epilogue", sans-serif;
   color: #000;
   font-weight: 500;
   text-transform: uppercase;
@@ -86,7 +86,7 @@ header .navbar a:hover {
 .admin-menu input {
   border: none;
   background: none;
-  font-family: "Work Sans", sans-serif;
+  font-family: "Epilogue", sans-serif;
   font-weight: 500;
   text-transform: uppercase;
   font-size: 1em;
@@ -158,7 +158,7 @@ header .navbar a:hover {
 
 .header-style {
   text-decoration: none;
-  font-family: "Work Sans", sans-serif;
+  font-family: "Epilogue", sans-serif;
   font-size: 3em;
   font-weight: 1600;
   text-transform: uppercase;
@@ -174,7 +174,7 @@ header .navbar a:hover {
 
 .jkpg-span {
   text-decoration: none;
-  font-family: "Work Sans", sans-serif;
+  font-family: "Epilogue", sans-serif;
   font-size: 3em;
   font-weight: 5000;
   text-transform: uppercase;
@@ -182,7 +182,7 @@ header .navbar a:hover {
 
 .city-span {
   text-decoration: none;
-  font-family: "Work Sans", sans-serif;
+  font-family: "Epilogue", sans-serif;
   font-size: 1em;
   font-weight: 5000;
   text-transform: uppercase;
@@ -190,7 +190,7 @@ header .navbar a:hover {
 
 .sub-text {
   text-decoration: none;
-  font-family: "Work Sans", sans-serif;
+  font-family: "Epilogue", sans-serif;
   font-size: 1em;
   font-weight: 5000;
   text-transform: uppercase;
@@ -204,7 +204,8 @@ header .navbar a:hover {
 
 .list {
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
+  grid-template-columns: repeat(3, 1fr);
+  row-gap: 10px;
   column-gap: 2em;
   margin-top: 100px;
   margin-bottom: 100px;
@@ -221,8 +222,17 @@ header .navbar a:hover {
   position: relative;
   overflow: hidden;
 }
+.list .card .card-border {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 1px;
+  background: #000;
+}
 .list .card::marker {
-  font-family: "Work Sans", sans-serif;
+  font-family: "Epilogue", sans-serif;
   font-size: 0.8em;
 }
 .list .card .card-content {
@@ -234,14 +244,9 @@ header .navbar a:hover {
   position: relative;
   width: fit-content;
 }
-.list .card .card-content:hover {
-  text-decoration: underline;
-  text-underline-offset: 3px;
-  text-decoration-thickness: 1px;
-}
 .list .card .card-content .card-header {
-  font-family: "Instrument Serif", serif;
-  font-size: 32px;
+  font-family: "Epilogue", sans-serif;
+  font-size: 26px;
 }
 @media screen and (max-width : 640px) {
   .list .card .card-content .card-header {
@@ -262,7 +267,7 @@ form .form-item {
   min-width: 50%;
 }
 form .form-item > label {
-  font-family: "Work Sans", sans-serif;
+  font-family: "Epilogue", sans-serif;
   letter-spacing: -0.8px;
   text-transform: uppercase;
   font-size: 0.8em;
@@ -359,7 +364,7 @@ form .form-item select:focus {
   text-transform: uppercase;
   padding: 1em 5em;
   cursor: pointer;
-  font-family: "Work Sans", sans-serif;
+  font-family: "Epilogue", sans-serif;
   align-self: center;
 }
 .btn.primary {
@@ -393,7 +398,7 @@ form .form-item select:focus {
   text-underline-offset: 2px;
 }
 .website-link span {
-  font-family: "Work Sans", sans-serif;
+  font-family: "Epilogue", sans-serif;
   letter-spacing: -0.8px;
   text-transform: uppercase;
   font-size: 0.8em;
@@ -423,7 +428,7 @@ footer {
   bottom: 3em;
 }
 footer span {
-  font-family: "Work Sans", sans-serif;
+  font-family: "Epilogue", sans-serif;
   letter-spacing: -0.8px;
   font-size: 14px;
 }

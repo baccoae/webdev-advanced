@@ -1,6 +1,7 @@
 // FONT VARIABLES
 $font-serif: "Instrument Serif", serif;
-$font-sans: "Work Sans", sans-serif;
+// $font-sans: "Work Sans", sans-serif;
+$font-sans: "Epilogue", sans-serif;
 $reduce-leading: -0.8px;
 
 // SIZES VARIABLES
@@ -235,7 +236,9 @@ header {
 }
 .list {
     display: grid;
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: repeat(3, 1fr);
+    // column-gap: 2em;
+    row-gap: 10px;
     column-gap: 2em;
     margin-top: 100px;
     margin-bottom: 100px;
@@ -250,6 +253,16 @@ header {
         width: 100%;
         position: relative;
         overflow: hidden;
+
+        & .card-border {
+            content: "";
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 1px;
+            background: $black;
+        }
         // list-style: decimal-leading-zero;
 
         &::marker {
@@ -267,15 +280,16 @@ header {
             position: relative;
             width: fit-content;
 
-            &:hover {
-                text-decoration: underline;
-                text-underline-offset: 3px;
-                text-decoration-thickness: 1px;
-            }
+            // &:hover {
+            //     text-decoration: underline;
+            //     text-underline-offset: 3px;
+            //     text-decoration-thickness: 1px;
+            // }
 
             .card-header {
-                font-family: $font-serif;
-                font-size: 32px;
+                font-family: $font-sans;
+                font-size: 26px;
+                // border-bottom: solid $black 1px;
 
                 @media #{$mobile} {
                     font-size: 26px;

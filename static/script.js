@@ -15,12 +15,21 @@ gsap.registerPlugin(ScrollTrigger);
 ScrollTrigger.defaults({ toggleActions: "play none none none" });
 
 for (let i = 0; i < storeItem.length; i++) {
+    let storeBorder = document.getElementsByClassName("store-border");
+
     if (storeItem[i].getBoundingClientRect().top < window.innerHeight - 50) {
         gsap.from(storeItem[i], {
             y: "50px",
             duration: .4,
             ease: "power3.out",
             // stagger: 0.03,
+            delay: i * 0.015,
+        })
+
+        gsap.from(storeBorder, {
+            width: 0,
+            duration: .4,
+            ease: "power3.out",
             delay: i * 0.015,
         })
     }
@@ -39,12 +48,21 @@ for (let i = 0; i < storeItem.length; i++) {
                 // markers: true,
             }
         })
+
+        gsap.from(storeBorder, {
+            width: 0,
+            duration: .4,
+            ease: "power3.out",
+            stagger: 0.03,
+            scrollTrigger: {
+                trigger: storeItem[i],
+                start: "top 95%",
+                end: "top 95%",
+                scrub: 5,
+                once: true,
+                // markers: true,
+            }
+
+        })
     }
 }
-
-// gsap.from(storeItem, {
-//     y: "50px",
-//     duration: .4,
-//     ease: "power3.out",
-//     stagger: 0.03,
-// })
