@@ -66,6 +66,15 @@ app.use(
     })
 )
 
+function orderStoreByDistrict(district, store) {
+    district.push({
+        id: store.id,
+        name: store.name,
+        url: store.url,
+        district: store.district,
+    })
+}
+
 
 
 
@@ -77,19 +86,53 @@ app.get('/', async (req, res) => {
 
 app.get('/stores', async (req, res) => {
     const storesJSON = await Model.getStores();
-    const stores = []
+    // const stores = []
+    const storesInAtollen = []
+    const storesInResecentrum = []
+    const storesInTandstick = []
+    const storesInVaster = []
+    const storesInOster = []
+    const otherStores = []
 
     for (let i in storesJSON) {
-        stores.push({
-            id: storesJSON[i].id,
-            name: storesJSON[i].name,
-            url: storesJSON[i].url,
-            district: storesJSON[i].district,
-        })
+
+        switch (storesJSON[i].district) {
+            case "Atollen":
+                orderStoreByDistrict(storesInAtollen, storesJSON[i])
+                break;
+            case "Resecentrum":
+                orderStoreByDistrict(storesInResecentrum, storesJSON[i])
+                break;
+            case "Tändsticksområdet":
+                orderStoreByDistrict(storesInTandstick, storesJSON[i])
+                break;
+            case "Väster":
+                orderStoreByDistrict(storesInVaster, storesJSON[i])
+                break;
+            case "Öster":
+                orderStoreByDistrict(storesInOster, storesJSON[i])
+                break;
+            default:
+                orderStoreByDistrict(otherStores, storesJSON[i])
+                break;
+        }
+
+        // stores.push({
+        //     id: storesJSON[i].id,
+        //     name: storesJSON[i].name,
+        //     url: storesJSON[i].url,
+        //     district: storesJSON[i].district,
+        // })
     }
 
     const model = {
-        stores
+        // stores
+        storesInAtollen,
+        storesInResecentrum,
+        storesInTandstick,
+        storesInVaster,
+        storesInOster,
+        otherStores
     }
 
     res.render('stores.hbs', model)

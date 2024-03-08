@@ -1,22 +1,129 @@
 {{! <div class="half-container"> }}
-<h1 class="text-center">All stores in JKPG</h1>
+<h1>All stores in JKPG</h1>
 
-<ol class="list">
-    {{#if stores.length}}
-        {{#each stores}}
+{{#if storesInAtollen.length}}
+    <span class="cat-name">Atollen</span>
+    <ol class="list">
+        {{#each storesInAtollen}}
             <li class="card">
                 <a class="card-content" href="/stores/{{id}}">
                     {{!-- <span>0{{id}}</span> --}}
                     <div class="card-header">{{name}}</div>
+                    <img src="images/arrow.svg" alt="" class="item-arrow" />
                 </a>
                 <div class="card-border"></div>
             </li>
         {{/each}}
 
-    {{else}}
-        <div>
-            <p class="text-center">No store is registered for now, please come back later.</p>
-        </div>
-    {{/if}}
-</ol>
+    </ol>
+{{else}}
+    <div>
+        <p class="text-center">No store is registered for now, please come back later.</p>
+    </div>
+{{/if}}
+
+{{#if storesInResecentrum.length}}
+    <span class="cat-name">Resecentrum</span>
+    <ol class="list">
+        {{#each storesInResecentrum}}
+            <li class="card">
+                <a class="card-content" href="/stores/{{id}}">
+                    {{!-- <span>0{{id}}</span> --}}
+                    <div class="card-header">{{name}}</div>
+                    <img src="images/arrow.svg" alt="" class="item-arrow" />
+                </a>
+                <div class="card-border"></div>
+            </li>
+        {{/each}}
+
+    </ol>
+{{else}}
+    <div>
+        <p class="text-center">No store is registered for now, please come back later.</p>
+    </div>
+{{/if}}
+
+{{#if storesInTandstick.length}}
+    <span class="cat-name">Tändsticksområdet</span>
+    <ol class="list">
+        {{#each storesInTandstick}}
+            <li class="card">
+                <a class="card-content" href="/stores/{{id}}">
+                    {{!-- <span>0{{id}}</span> --}}
+                    <div class="card-header">{{name}}</div>
+                    <img src="images/arrow.svg" alt="" class="item-arrow" />
+                </a>
+                <div class="card-border"></div>
+            </li>
+        {{/each}}
+
+    </ol>
+{{else}}
+    <div>
+        <p class="text-center">No store is registered for now, please come back later.</p>
+    </div>
+{{/if}}
+
+{{#if storesInVaster.length}}
+    <span class="cat-name">Väster</span>
+    <ol class="list">
+        {{#each storesInVaster}}
+            <li class="card">
+                <a class="card-content" href="/stores/{{id}}">
+                    {{!-- <span>0{{id}}</span> --}}
+                    <div class="card-header">{{name}}</div>
+                    <img src="images/arrow.svg" alt="" class="item-arrow" />
+                </a>
+                <div class="card-border"></div>
+            </li>
+        {{/each}}
+
+    </ol>
+{{else}}
+    <div>
+        <p class="text-center">No store is registered for now, please come back later.</p>
+    </div>
+{{/if}}
+
+{{#if storesInOster.length}}
+    <span class="cat-name">Öster</span>
+    <ol class="list">
+        {{#each storesInOster}}
+            <li class="card">
+                <a class="card-content" href="/stores/{{id}}">
+                    {{!-- <span>0{{id}}</span> --}}
+                    <div class="card-header">{{name}}</div>
+                    <img src="images/arrow.svg" alt="" class="item-arrow" />
+                </a>
+                <div class="card-border"></div>
+            </li>
+        {{/each}}
+
+    </ol>
+{{else}}
+    <div>
+        <p class="text-center">No store is registered for now, please come back later.</p>
+    </div>
+{{/if}}
+
+{{#if otherStores.length}}
+    <span class="cat-name">Other / Unspecified</span>
+    <ol class="list">
+        {{#each otherStores}}
+            <li class="card">
+                <a class="card-content" href="/stores/{{id}}">
+                    {{!-- <span>0{{id}}</span> --}}
+                    <div class="card-header">{{name}}</div>
+                    <img src="images/arrow.svg" alt="" class="item-arrow" />
+                </a>
+                <div class="card-border"></div>
+            </li>
+        {{/each}}
+
+    </ol>
+{{else}}
+    <div>
+        <p class="text-center">No store is registered for now, please come back later.</p>
+    </div>
+{{/if}}
 {{! </div> }}
