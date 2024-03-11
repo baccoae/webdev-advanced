@@ -24,6 +24,8 @@ $mobile: "screen and (max-width : 640px)";
 h1 {
     font-size: 3em;
     font-family: $font-serif;
+    text-align: center;
+    line-height: 0.9;
 }
 
 p {
@@ -192,9 +194,11 @@ header {
 .header-style {
     text-decoration: none;
     font-family: $font-sans;
-    font-size: 3em;
+    font-size: 10em;
     font-weight: 1600;
     text-transform: uppercase;
+    letter-spacing: -0.05em;
+    color: white;
 }
 
 .hero {
@@ -203,6 +207,23 @@ header {
     min-height: 100vh;
     align-items: center;
     padding: 0 0 0 2.5vw;
+}
+
+.hero-body {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 90vh;
+
+}
+
+.background-image {
+    background-image: url('/images/Jkpg_City_Hero_Image.png');
+    background-size: cover;
+    background-position: center;
+    height: 100vh;
+    margin: -50px -100px -10px -100px;
 }
 
 .jkpg-span {
@@ -227,6 +248,8 @@ header {
     font-size: 1em;
     font-weight: 5000;
     text-transform: uppercase;
+    text-align: center;
+    color: white;
 }
 
 .header-logo {
@@ -302,6 +325,7 @@ header {
 form {
     display: flex;
     flex-direction: column;
+    align-items: center;
     width: 100%;
     gap: 64px;
     margin-top: 64px;
@@ -437,10 +461,13 @@ form {
 .store-header {
     width: 100%;
     display: flex;
-    flex-direction: row;
-    align-items: baseline;
-    justify-content: space-between;
+    flex-direction:column;
+    align-items: center;
+    justify-content: center;
+    height: 80vh;
+    gap: 50px;
     margin-bottom: 64px;
+    font-size: 60px;
 }
 
 .website-link {
@@ -449,6 +476,7 @@ form {
     align-items: center;
     gap: 8px;
     text-decoration: none;
+    font-size: 30px;
 
     &:hover {
         text-decoration: underline;
@@ -464,8 +492,25 @@ form {
     }
 
     img {
-        width: 8px;
+        height: 0.5em;
     }
+}
+
+.location {
+    font-family: $font-sans;
+    letter-spacing: $reduce-leading;
+    text-transform: uppercase;
+    font-size: 0.4em;
+    color: $black;
+}
+
+.log-in {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 80vh;
 }
 
 .toast {

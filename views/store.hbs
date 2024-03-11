@@ -8,7 +8,7 @@
     </div>
 {{/if}}
 
-<div class="half-container">
+<div>
     {{#if loginError.length}}
         <div>
             {{#each loginError}}
@@ -18,17 +18,17 @@
     {{else}}
         {{#if store}}
             <div class="store-header">
-                <h1>{{store.name}}</h1>
                 <a class="website-link" href="https://www.{{store.url}}" target="_blank">
                     <span>Visit website</span>
                     <img src="/images/arrow.svg" alt="" />
                 </a>
+                <h1>{{store.name}}</h1>
+                {{#if store.district}}
+                    <p class="location">District: {{store.district}}</p>
+                {{else}}
+                    <p class="location">District: Other</p>
+                {{/if}}          
             </div>
-            {{#if store.district}}
-                <p>District: {{store.district}}</p>
-            {{else}}
-                <p>District: Other</p>
-            {{/if}}
 
         {{else}}
             <p>Sorry, this store does not exist</p>

@@ -1,13 +1,11 @@
-<div class="half-container">
-    <h1>Log In</h1>
+<div class="log-in">
+    <h1 >Log In</h1>
     <form action="/log-in" method="post">
         <div class="form-item">
-            <label for="Log-In Username">Username</label>
-            <input type="text" name="username" id="username" value="{{enteredUsername}}" />
+            <input type="text" name="username" id="username" placeholder="Username..." value="{{enteredUsername}}" />
         </div>
         <div class="form-item">
-            <label for="Log-In Password">Password</label>
-            <input type="password" name="password" id="password" value="{{enteredPassword}}" />
+            <input type="password" name="password" id="password" placeholder="Password..." value="{{enteredPassword}}" />
         </div>
 
         {{#if failedToLogIn}}
