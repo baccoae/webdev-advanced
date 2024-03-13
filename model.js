@@ -59,6 +59,13 @@ class ModelClass {
         return rows;
     }
 
+    async getStoresDescOrdered() {
+        const { rows } = await this.connection.query(`
+      SELECT * FROM public.stores ORDER BY name DESC
+    `);
+        return rows;
+    }
+
     async getStoreById(storeId) {
         const { rows } = await this.connection.query(`
             SELECT * FROM stores WHERE id = $1
@@ -95,7 +102,13 @@ class ModelClass {
         `, [storeId])
     }
 
-
+    async updateStore(newName, newURL, newDistrict, storeId) {
+        await this.connection.query(`
+        UPDATE public.stores
+        SET name = $1, url = $2, district = $3
+        WHERE id = $4
+        `, [newName, newURL, newDistrict, storeId])
+    }
 }
 
 //     async setup(storeJSON) {
