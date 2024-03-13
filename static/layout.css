@@ -1,593 +1,593 @@
 * {
-    margin: 0;
-    padding: 0;
+  margin: 0;
+  padding: 0;
 }
 
 h1 {
-    font-size: 3em;
-    font-family: "Instrument Serif", serif;
-    text-align: center;
-    line-height: 0.9;
+  font-size: 3em;
+  font-family: "Instrument Serif", serif;
+  text-align: center;
+  line-height: 0.9;
 }
 
 p {
-    font-family: "Epilogue", sans-serif;
-    letter-spacing: -0.8px;
-    font-size: 16px;
+  font-family: "Epilogue", sans-serif;
+  letter-spacing: -0.8px;
+  font-size: 16px;
 }
 
 header {
-    position: fixed;
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    width: fit-content;
-    padding: 10px 25px 10px 10px;
-    border-radius: 4px;
-    bottom: 2em;
-    left: 0;
-    right: 0;
-    margin: auto;
-    box-sizing: border-box;
-    justify-content: space-between;
-    background: rgba(0, 0, 0, 0.5);
-    backdrop-filter: blur(10px);
-    gap: 70px;
-    z-index: 999;
+  position: fixed;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  width: fit-content;
+  padding: 10px 25px 10px 10px;
+  border-radius: 4px;
+  bottom: 2em;
+  left: 0;
+  right: 0;
+  margin: auto;
+  box-sizing: border-box;
+  justify-content: space-between;
+  background: rgba(0, 0, 0, 0.5);
+  backdrop-filter: blur(10px);
+  gap: 70px;
+  z-index: 999;
 }
 header .header-logo {
-    color: #fff;
-    font-family: sans-serif;
-    font-size: 1em;
-    text-decoration: none;
-    font-weight: 900;
+  color: #fff;
+  font-family: sans-serif;
+  font-size: 1em;
+  text-decoration: none;
+  font-weight: 900;
 }
 header .navbar {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    gap: 1.5em;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 1.5em;
 }
 header .navbar a {
-    color: #fff;
-    text-decoration: none;
-    font-family: "Epilogue", sans-serif;
-    font-size: 0.7em;
-    font-weight: 500;
-    text-transform: uppercase;
+  color: #fff;
+  text-decoration: none;
+  font-family: "Epilogue", sans-serif;
+  font-size: 0.7em;
+  font-weight: 500;
+  text-transform: uppercase;
 }
 header .navbar a:hover {
-    text-decoration: underline;
+  text-decoration: underline;
 }
 
 .admin-menu {
-    position: fixed;
-    border: 1px solid #000;
-    top: 2rem;
-    right: 2rem;
-    padding: 10px 20px;
-    display: flex;
-    justify-content: space-between;
-    gap: 20px;
-    box-sizing: border-box;
-    font-size: 0.7em;
-    font-weight: 500;
-    text-transform: uppercase;
-    font-family: "Epilogue", sans-serif;
+  position: fixed;
+  border: 1px solid #000;
+  top: 2rem;
+  right: 2rem;
+  padding: 10px 20px;
+  display: flex;
+  justify-content: space-between;
+  gap: 20px;
+  box-sizing: border-box;
+  font-size: 0.7em;
+  font-weight: 500;
+  text-transform: uppercase;
+  font-family: "Epilogue", sans-serif;
 }
 .admin-menu span {
-    font-family: "Epilogue", sans-serif;
-    color: #000;
-    font-weight: 500;
-    text-transform: uppercase;
+  font-family: "Epilogue", sans-serif;
+  color: #000;
+  font-weight: 500;
+  text-transform: uppercase;
 }
 .admin-menu form {
-    margin: 0;
-    width: fit-content;
+  margin: 0;
+  width: fit-content;
 }
 .admin-menu input {
-    border: none;
-    background: none;
-    font-family: "Epilogue", sans-serif;
-    font-weight: 500;
-    text-transform: uppercase;
-    font-size: 1em;
-    width: min-content;
-    cursor: pointer;
-    color: #e12525;
+  border: none;
+  background: none;
+  font-family: "Epilogue", sans-serif;
+  font-weight: 500;
+  text-transform: uppercase;
+  font-size: 1em;
+  width: min-content;
+  cursor: pointer;
+  color: #e12525;
 }
 .admin-menu input:hover {
-    text-decoration: underline;
+  text-decoration: underline;
 }
 .admin-menu a {
-    color: #000;
-    text-decoration: none;
+  color: #000;
+  text-decoration: none;
 }
 
 .container {
-    padding: 2em;
-    box-sizing: border-box;
-    min-height: 100%;
+  padding: 2em;
+  box-sizing: border-box;
+  min-height: 100%;
 }
 
 .grid-test {
-    position: fixed;
-    top: 0;
-    z-index: -1;
-    width: 100vw;
-    height: 100vh;
+  position: fixed;
+  top: 0;
+  z-index: -1;
+  width: 100vw;
+  height: 100vh;
 }
 .grid-test .gridline {
-    background: #e1e1e1;
-    position: absolute;
+  background: #e1e1e1;
+  position: absolute;
 }
 .grid-test .gridline:nth-child(1) {
-    width: 1px;
-    height: 100%;
-    left: 2em;
+  width: 1px;
+  height: 100%;
+  left: 2em;
 }
 .grid-test .gridline:nth-child(2) {
-    width: 1px;
-    height: 100%;
-    right: 2em;
+  width: 1px;
+  height: 100%;
+  right: 2em;
 }
 .grid-test .gridline:nth-child(3) {
-    width: 100%;
-    height: 1px;
-    top: 2em;
+  width: 100%;
+  height: 1px;
+  top: 2em;
 }
 .grid-test .gridline:nth-child(4) {
-    width: 100%;
-    height: 1px;
-    bottom: 2em;
+  width: 100%;
+  height: 1px;
+  bottom: 2em;
 }
 .grid-test .gridline:nth-child(5) {
-    width: 1px;
-    height: 100%;
-    left: 0;
-    right: 0;
-    transform: translateX(-1em);
-    margin: 0 auto;
+  width: 1px;
+  height: 100%;
+  left: 0;
+  right: 0;
+  transform: translateX(-1em);
+  margin: 0 auto;
 }
 .grid-test .gridline:nth-child(6) {
-    width: 1px;
-    height: 100%;
-    left: 0;
-    right: 0;
-    transform: translateX(1em);
-    margin: 0 auto;
+  width: 1px;
+  height: 100%;
+  left: 0;
+  right: 0;
+  transform: translateX(1em);
+  margin: 0 auto;
 }
 
 .header-style {
-    text-decoration: none;
-    font-family: "Epilogue", sans-serif;
-    font-size: 10em;
-    font-weight: 1600;
-    text-transform: uppercase;
-    letter-spacing: -0.05em;
-    color: white;
+  text-decoration: none;
+  font-family: "Epilogue", sans-serif;
+  font-size: 10em;
+  font-weight: 1600;
+  text-transform: uppercase;
+  letter-spacing: -0.05em;
+  color: white;
 }
 
 .hero {
-    position: relative;
-    display: flex;
-    min-height: 100vh;
-    align-items: center;
-    padding: 0 0 0 2.5vw;
+  position: relative;
+  display: flex;
+  min-height: 100vh;
+  align-items: center;
+  padding: 0 0 0 2.5vw;
 }
 
 .hero-body {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    height: 90vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 90vh;
 }
 
 .background-image {
-    background-image: url("/images/Jkpg_City_Hero_Image.png");
-    background-size: cover;
-    background-position: center;
-    height: 100vh;
-    margin: -50px -100px -10px -100px;
+  background-image: url("/images/Jkpg_City_Hero_Image.png");
+  background-size: cover;
+  background-position: center;
+  height: 100vh;
+  margin: -50px -100px -10px -100px;
 }
 
 .jkpg-span {
-    text-decoration: none;
-    font-family: "Epilogue", sans-serif;
-    font-size: 3em;
-    font-weight: 5000;
-    text-transform: uppercase;
+  text-decoration: none;
+  font-family: "Epilogue", sans-serif;
+  font-size: 3em;
+  font-weight: 5000;
+  text-transform: uppercase;
 }
 
 .city-span {
-    text-decoration: none;
-    font-family: "Epilogue", sans-serif;
-    font-size: 1em;
-    font-weight: 5000;
-    text-transform: uppercase;
+  text-decoration: none;
+  font-family: "Epilogue", sans-serif;
+  font-size: 1em;
+  font-weight: 5000;
+  text-transform: uppercase;
 }
 
 .sub-text {
-    text-decoration: none;
-    font-family: "Epilogue", sans-serif;
-    font-size: 1em;
-    font-weight: 5000;
-    text-transform: uppercase;
-    text-align: center;
-    color: white;
+  text-decoration: none;
+  font-family: "Epilogue", sans-serif;
+  font-size: 1em;
+  font-weight: 5000;
+  text-transform: uppercase;
+  text-align: center;
+  color: white;
 }
 
 .header-logo {
-    background-color: #323232;
-    padding: 15px;
-    border-radius: 2px;
+  background-color: #323232;
+  padding: 15px;
+  border-radius: 2px;
 }
 
 .cat-name {
-    font-family: "Epilogue", sans-serif;
-    font-size: 14px;
-    font-weight: 600;
-    text-transform: uppercase;
-    display: inline-block;
-    margin-bottom: 20px;
-    opacity: 0.4;
+  font-family: "Epilogue", sans-serif;
+  font-size: 14px;
+  font-weight: 600;
+  text-transform: uppercase;
+  display: inline-block;
+  margin-bottom: 20px;
+  opacity: 0.4;
 }
 
 .list {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    row-gap: 20px;
-    column-gap: 2em;
-    margin-bottom: 80px;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  row-gap: 20px;
+  column-gap: 2em;
+  margin-bottom: 80px;
 }
-@media screen and (max-width: 640px) {
-    .list {
-        grid-template-columns: 1fr;
-    }
+@media screen and (max-width : 640px) {
+  .list {
+    grid-template-columns: 1fr;
+  }
 }
 .list .card {
-    list-style-position: inside;
-    list-style: none;
-    width: 100%;
-    position: relative;
-    overflow: hidden;
+  list-style-position: inside;
+  list-style: none;
+  width: 100%;
+  position: relative;
+  overflow: hidden;
 }
 .list .card .card-border {
-    content: "";
-    position: relative;
-    bottom: 0px;
-    left: 0;
-    width: 100%;
-    height: 1px;
-    background: #000;
+  content: "";
+  position: relative;
+  bottom: 0px;
+  left: 0;
+  width: 100%;
+  height: 1px;
+  background: #000;
 }
 .list .card::marker {
-    font-family: "Epilogue", sans-serif;
-    font-size: 0.8em;
+  font-family: "Epilogue", sans-serif;
+  font-size: 0.8em;
 }
 .list .card .card-content {
-    display: flex;
-    flex-direction: row;
-    align-items: baseline;
-    justify-content: space-between;
-    text-decoration: none;
-    color: #000;
-    position: relative;
-    width: fit-content;
-    width: 100%;
+  display: flex;
+  flex-direction: row;
+  align-items: baseline;
+  justify-content: space-between;
+  text-decoration: none;
+  color: #000;
+  position: relative;
+  width: fit-content;
+  width: 100%;
 }
 .list .card .card-content .card-header {
-    font-family: "Epilogue", sans-serif;
-    font-size: 24px;
-    letter-spacing: -0.8px;
-    text-overflow: ellipsis;
-    white-space: nowrap;
-    overflow: hidden;
-    width: 95%;
-    line-height: 1.4em;
+  font-family: "Epilogue", sans-serif;
+  font-size: 24px;
+  letter-spacing: -0.8px;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+  width: 95%;
+  line-height: 1.4em;
 }
-@media screen and (max-width: 640px) {
-    .list .card .card-content .card-header {
-        font-size: 26px;
-    }
+@media screen and (max-width : 640px) {
+  .list .card .card-content .card-header {
+    font-size: 26px;
+  }
 }
 .list .card .card-content .item-arrow {
-    width: 15px;
+  width: 15px;
 }
 
 form {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    width: 100%;
-    gap: 64px;
-    margin-top: 64px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  gap: 64px;
+  margin-top: 64px;
 }
 form .form-item {
-    display: flex;
-    flex-direction: column;
-    min-width: 50%;
+  display: flex;
+  flex-direction: column;
+  min-width: 50%;
 }
 form .form-item > label {
-    font-family: "Epilogue", sans-serif;
-    letter-spacing: -0.8px;
-    text-transform: uppercase;
-    font-size: 0.8em;
-    margin-bottom: 8px;
+  font-family: "Epilogue", sans-serif;
+  letter-spacing: -0.8px;
+  text-transform: uppercase;
+  font-size: 0.8em;
+  margin-bottom: 8px;
 }
-form .form-item input[type="text"],
-form .form-item input[type="url"],
-form .form-item input[type="password"] {
-    border: none;
-    border-bottom: solid #e1e1e1 1px;
-    background: none;
-    font-family: "Instrument Serif", serif;
-    font-size: 2.5em;
-    color: #000;
+form .form-item input[type=text],
+form .form-item input[type=url],
+form .form-item input[type=password] {
+  border: none;
+  border-bottom: solid #e1e1e1 1px;
+  background: none;
+  font-family: "Instrument Serif", serif;
+  font-size: 2.5em;
+  color: #000;
 }
-form .form-item input[type="text"]:focus,
-form .form-item input[type="url"]:focus,
-form .form-item input[type="password"]:focus {
-    border-bottom: solid #000 1px;
-    outline: none;
+form .form-item input[type=text]:focus,
+form .form-item input[type=url]:focus,
+form .form-item input[type=password]:focus {
+  border-bottom: solid #000 1px;
+  outline: none;
 }
-form .form-item input[type="text"]::placeholder,
-form .form-item input[type="url"]::placeholder,
-form .form-item input[type="password"]::placeholder {
-    color: #e1e1e1;
+form .form-item input[type=text]::placeholder,
+form .form-item input[type=url]::placeholder,
+form .form-item input[type=password]::placeholder {
+  color: #e1e1e1;
 }
 form .form-item .radio-container {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    margin-top: 16px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  margin-top: 16px;
 }
 form .form-item .radio-container .radio-item {
-    display: flex;
-    flex-direction: row-reverse;
-    align-items: center;
-    font-family: "Instrument Serif", serif;
-    font-size: 2em;
-    /* Create the indicator (the dot/circle - hidden when not checked) */
-    /* Show the indicator (dot/circle) when checked */
-    /* Style the indicator (dot/circle) */
+  display: flex;
+  flex-direction: row-reverse;
+  align-items: center;
+  font-family: "Instrument Serif", serif;
+  font-size: 2em;
+  /* Create the indicator (the dot/circle - hidden when not checked) */
+  /* Show the indicator (dot/circle) when checked */
+  /* Style the indicator (dot/circle) */
 }
 form .form-item .radio-container .radio-item input {
-    position: absolute;
-    opacity: 0;
-    cursor: pointer;
-    height: 0;
-    width: 0;
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+  height: 0;
+  width: 0;
 }
 form .form-item .radio-container .radio-item input:checked ~ .radio {
-    opacity: 1;
+  opacity: 1;
 }
 form .form-item .radio-container .radio-item .radio {
-    border: solid #000 1px;
-    opacity: 0.2;
-    width: 22px;
-    height: 22px;
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin-right: 8px;
+  border: solid #000 1px;
+  opacity: 0.2;
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-right: 8px;
 }
 form .form-item .radio-container .radio-item .radio:after {
-    content: "";
-    position: absolute;
-    display: none;
+  content: "";
+  position: absolute;
+  display: none;
 }
 form .form-item .radio-container .radio-item input:checked ~ .radio:after {
-    display: block;
+  display: block;
 }
 form .form-item .radio-container .radio-item .radio:after {
-    width: 22px;
-    height: 22px;
-    border-radius: 50%;
-    background: #000;
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  background: #000;
 }
 form .form-item select {
-    border: none;
-    border-bottom: solid #e1e1e1 1px;
-    background: none;
-    font-family: "Instrument Serif", serif;
-    font-size: 1.25em;
-    color: #000;
+  border: none;
+  border-bottom: solid #e1e1e1 1px;
+  background: none;
+  font-family: "Instrument Serif", serif;
+  font-size: 1.25em;
+  color: #000;
 }
 form .form-item select:focus {
-    border-bottom: solid #000 1px;
-    outline: none;
+  border-bottom: solid #000 1px;
+  outline: none;
 }
 
 .btn {
-    width: fit-content;
-    border: none;
-    text-transform: uppercase;
-    padding: 1em 5em;
-    cursor: pointer;
-    font-family: "Epilogue", sans-serif;
-    align-self: center;
+  width: fit-content;
+  border: none;
+  text-transform: uppercase;
+  padding: 1em 5em;
+  cursor: pointer;
+  font-family: "Epilogue", sans-serif;
+  align-self: center;
 }
 .btn.primary {
-    background: #000;
-    color: #fff;
+  background: #000;
+  color: #fff;
 }
 
 .half-container {
-    position: relative;
-    width: calc(50% - (2em / 2));
+  position: relative;
+  width: calc(50% - (2em / 2));
 }
 
 .store-header {
-    width: 100%;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    height: 80vh;
-    gap: 50px;
-    margin-bottom: 64px;
-    font-size: 60px;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 80vh;
+  gap: 50px;
+  margin-bottom: 64px;
+  font-size: 60px;
 }
 
 .website-link {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    gap: 8px;
-    text-decoration: none;
-    font-size: 30px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 8px;
+  text-decoration: none;
+  font-size: 30px;
 }
 .website-link:hover {
-    text-decoration: underline;
-    text-underline-offset: 2px;
+  text-decoration: underline;
+  text-underline-offset: 2px;
 }
 .website-link span {
-    font-family: "Epilogue", sans-serif;
-    letter-spacing: -0.8px;
-    text-transform: uppercase;
-    font-size: 0.8em;
-    color: #000;
+  font-family: "Epilogue", sans-serif;
+  letter-spacing: -0.8px;
+  text-transform: uppercase;
+  font-size: 0.8em;
+  color: #000;
 }
 .website-link img {
-    height: 0.5em;
+  height: 0.5em;
 }
 
 .location {
-    font-family: "Epilogue", sans-serif;
-    letter-spacing: -0.8px;
-    text-transform: uppercase;
-    font-size: 0.4em;
-    color: #000;
+  font-family: "Epilogue", sans-serif;
+  letter-spacing: -0.8px;
+  text-transform: uppercase;
+  font-size: 0.4em;
+  color: #000;
 }
 
 .log-in {
-    width: 100%;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    height: 80vh;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 80vh;
 }
 
 .toast {
-    width: 100%;
-    padding: 10px 0;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+  width: 100%;
+  padding: 10px 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 .toast.error {
-    background: #e12525;
-    color: #fff;
+  background: #e12525;
+  color: #fff;
 }
 
 footer {
-    display: flex;
-    flex-direction: row;
-    padding: 0 2em;
-    position: relative;
-    bottom: 3em;
+  display: flex;
+  flex-direction: row;
+  padding: 0 2em;
+  position: relative;
+  bottom: 3em;
 }
 footer span {
-    font-family: "Epilogue", sans-serif;
-    letter-spacing: -0.8px;
-    font-size: 14px;
+  font-family: "Epilogue", sans-serif;
+  letter-spacing: -0.8px;
+  font-size: 14px;
 }
 
 .graphFlexBox {
-    display: flex;
-    -webkit-transform: rotate(180deg);
-    -moz-transform: rotate(180deg);
-    -o-transform: rotate(180deg);
-    -ms-transform: rotate(180deg);
-    transform: rotate(180deg);
-    justify-content: center;
+  display: flex;
+  -webkit-transform: rotate(180deg);
+  -moz-transform: rotate(180deg);
+  -o-transform: rotate(180deg);
+  -ms-transform: rotate(180deg);
+  transform: rotate(180deg);
+  justify-content: center;
 }
 
 .singleBarAtollen {
-    height: 5px;
-    width: 100px;
-    background-color: #d8ddef;
+  height: 5px;
+  width: 100px;
+  background-color: #d8ddef;
 }
 
 .singleBarResecentrum {
-    height: 5px;
-    width: 100px;
-    background-color: #e9c194;
-    transform-origin: top;
+  height: 5px;
+  width: 100px;
+  background-color: #e9c194;
+  transform-origin: top;
 }
 
 .resecentrumGraph {
-    width: 100px;
-    margin-right: 20px;
+  width: 100px;
+  margin-right: 20px;
 }
 
 .osterGraph {
-    width: 100px;
-    margin-right: 20px;
+  width: 100px;
+  margin-right: 20px;
 }
 
 .vasterGraph {
-    width: 100px;
-    margin-right: 20px;
+  width: 100px;
+  margin-right: 20px;
 }
 
 .AtollenGraph {
-    width: 100px;
-    margin-right: 20px;
+  width: 100px;
+  margin-right: 20px;
 }
 
 .tandstickGraph {
-    width: 100px;
-    margin-right: 20px;
+  width: 100px;
+  margin-right: 20px;
 }
 
 .singleBarTandstick {
-    height: 5px;
-    width: 100px;
-    background-color: #aeaa9a;
-    transform-origin: top;
+  height: 5px;
+  width: 100px;
+  background-color: #aeaa9a;
+  transform-origin: top;
 }
 
 .singleBarVaster {
-    height: 5px;
-    width: 100px;
-    background-color: #7293a0;
-    transform-origin: top;
+  height: 5px;
+  width: 100px;
+  background-color: #7293a0;
+  transform-origin: top;
 }
 
 .singleBarOster {
-    height: 5px;
-    width: 100px;
-    background-color: #45b69c;
-    transform-origin: top;
+  height: 5px;
+  width: 100px;
+  background-color: #45b69c;
+  transform-origin: top;
 }
 
 .singleBarOtherStores {
-    height: 5px;
-    width: 100px;
-    background-color: #21d19f;
-    transform-origin: top;
+  height: 5px;
+  width: 100px;
+  background-color: #21d19f;
+  transform-origin: top;
 }
 
 .graphContainer {
-    display: flex;
-    justify-content: center;
-    padding-left: 70px;
-    margin-top: 20px;
+  display: flex;
+  justify-content: center;
+  padding-left: 70px;
+  margin-top: 20px;
 }
 
 .subTitle {
-    width: 100px;
-    margin-right: 20px;
+  width: 100px;
+  margin-right: 20px;
 }
 
 .graphTitle {
-    font-family: "Epilogue", sans-serif;
-    font-size: 14px;
-    font-weight: 600;
-    text-transform: uppercase;
+  font-family: "Epilogue", sans-serif;
+  font-size: 14px;
+  font-weight: 600;
+  text-transform: uppercase;
 }
