@@ -129,7 +129,7 @@ app.get('/stores', async (req, res) => {
 
 });
 
-app.get("/stores?order=DESC"), async (req, res) => {
+app.get('/stores-order-desc', async (req, res) => {
     const stores = await Model.getStoresDescOrdered();
     const storesInAtollen = []
     const storesInResecentrum = []
@@ -171,7 +171,7 @@ app.get("/stores?order=DESC"), async (req, res) => {
     }
 
     res.render('stores.hbs', model)
-}
+})
 
 app.get('/stores/add', async (req, res) => {
     if (req.session.isLoggedIn && req.session.username === "admin") {
