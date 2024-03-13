@@ -467,65 +467,84 @@ footer span {
 .singleBarAtollen {
   height: 5px;
   width: 100px;
-  background-color: #e12525;
-  margin-right: 20px;
+  background-color: #D8DDEF;
 }
 
 .singleBarResecentrum {
   height: 5px;
   width: 100px;
-  background-color: aqua;
+  background-color: #E9C194;
   transform-origin: top;
-  margin-right: 20px;
 }
 
 .resecentrumGraph {
-  display: flex;
-  flex-direction: column;
-  justify-content: baseline;
-  align-items: end;
+  width: 100px;
+  margin-right: 20px;
+}
+
+.osterGraph {
+  width: 100px;
+  margin-right: 20px;
+}
+
+.vasterGraph {
+  width: 100px;
+  margin-right: 20px;
+}
+
+.AtollenGraph {
+  width: 100px;
+  margin-right: 20px;
+}
+
+.tandstickGraph {
+  width: 100px;
+  margin-right: 20px;
 }
 
 .singleBarTandstick {
   height: 5px;
   width: 100px;
-  background-color: orange;
+  background-color: #AEAA9A;
   transform-origin: top;
-  margin-right: 20px;
 }
 
 .singleBarVaster {
   height: 5px;
   width: 100px;
-  background-color: blueviolet;
+  background-color: #7293A0;
   transform-origin: top;
-  margin-right: 20px;
 }
 
 .singleBarOster {
   height: 5px;
   width: 100px;
-  background-color: yellow;
+  background-color: #45B69C;
   transform-origin: top;
-  margin-right: 20px;
 }
 
 .singleBarOtherStores {
   height: 5px;
   width: 100px;
-  background-color: green;
+  background-color: #21D19F;
   transform-origin: top;
-  margin-right: 20px;
 }
 
 .graphContainer {
   display: flex;
   justify-content: center;
-  padding-left: 85px;
+  padding-left: 70px;
   margin-top: 20px;
 }
 
 .subTitle {
   width: 100px;
   margin-right: 20px;
+}
+
+.graphTitle {
+  font-family: "Epilogue", sans-serif;
+  font-size: 14px;
+  font-weight: 600;
+  text-transform: uppercase;
 }
