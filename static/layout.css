@@ -449,12 +449,6 @@ footer {
     bottom: 3em;
 }
 footer span {
-<<<<<<< Updated upstream
-  font-family: "Epilogue", sans-serif;
-  letter-spacing: -0.8px;
-  font-size: 14px;
-}
-=======
     font-family: "Epilogue", sans-serif;
     letter-spacing: -0.8px;
     font-size: 14px;
@@ -554,4 +548,3 @@ footer span {
     font-weight: 600;
     text-transform: uppercase;
 }
->>>>>>> Stashed changes
