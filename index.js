@@ -79,14 +79,12 @@ function orderStoreByDistrict(district, store) {
 
 
 app.get('/', async (req, res) => {
-    const stores = await Model.getStores();
     res.render('start.hbs')
 });
 
 
 app.get('/stores', async (req, res) => {
-    const storesJSON = await Model.getStores();
-    // const stores = []
+    const stores = await Model.getStores();
     const storesInAtollen = []
     const storesInResecentrum = []
     const storesInTandstick = []
@@ -94,35 +92,27 @@ app.get('/stores', async (req, res) => {
     const storesInOster = []
     const otherStores = []
 
-    for (let i in storesJSON) {
-
-        switch (storesJSON[i].district) {
+    for (let i in stores) {
+        switch (stores[i].district) {
             case "Atollen":
-                orderStoreByDistrict(storesInAtollen, storesJSON[i])
+                orderStoreByDistrict(storesInAtollen, stores[i])
                 break;
             case "Resecentrum":
-                orderStoreByDistrict(storesInResecentrum, storesJSON[i])
+                orderStoreByDistrict(storesInResecentrum, stores[i])
                 break;
             case "Tändsticksområdet":
-                orderStoreByDistrict(storesInTandstick, storesJSON[i])
+                orderStoreByDistrict(storesInTandstick, stores[i])
                 break;
             case "Väster":
-                orderStoreByDistrict(storesInVaster, storesJSON[i])
+                orderStoreByDistrict(storesInVaster, stores[i])
                 break;
             case "Öster":
-                orderStoreByDistrict(storesInOster, storesJSON[i])
+                orderStoreByDistrict(storesInOster, stores[i])
                 break;
             default:
-                orderStoreByDistrict(otherStores, storesJSON[i])
+                orderStoreByDistrict(otherStores, stores[i])
                 break;
         }
-
-        // stores.push({
-        //     id: storesJSON[i].id,
-        //     name: storesJSON[i].name,
-        //     url: storesJSON[i].url,
-        //     district: storesJSON[i].district,
-        // })
     }
 
     const model = {
@@ -139,6 +129,50 @@ app.get('/stores', async (req, res) => {
 
 });
 
+app.get("/stores?order=DESC"), async (req, res) => {
+    const stores = await Model.getStoresDescOrdered();
+    const storesInAtollen = []
+    const storesInResecentrum = []
+    const storesInTandstick = []
+    const storesInVaster = []
+    const storesInOster = []
+    const otherStores = []
+
+    for (let i in stores) {
+        switch (stores[i].district) {
+            case "Atollen":
+                orderStoreByDistrict(storesInAtollen, stores[i])
+                break;
+            case "Resecentrum":
+                orderStoreByDistrict(storesInResecentrum, stores[i])
+                break;
+            case "Tändsticksområdet":
+                orderStoreByDistrict(storesInTandstick, stores[i])
+                break;
+            case "Väster":
+                orderStoreByDistrict(storesInVaster, stores[i])
+                break;
+            case "Öster":
+                orderStoreByDistrict(storesInOster, stores[i])
+                break;
+            default:
+                orderStoreByDistrict(otherStores, stores[i])
+                break;
+        }
+    }
+
+    const model = {
+        storesInAtollen,
+        storesInResecentrum,
+        storesInTandstick,
+        storesInVaster,
+        storesInOster,
+        otherStores
+    }
+
+    res.render('stores.hbs', model)
+}
+
 app.get('/stores/add', async (req, res) => {
     if (req.session.isLoggedIn && req.session.username === "admin") {
         res.render('add-store.hbs');
@@ -150,7 +184,6 @@ app.get('/stores/add', async (req, res) => {
 app.post('/stores/add', async (req, res) => {
     if (req.session.isLoggedIn && req.session.username === "admin") {
         const newStore = await Model.addNewStore(req.body);
-        console.log("Received : " + newStore);
         res.redirect(`/stores/${newStore}`);
     }
 });
@@ -177,6 +210,45 @@ app.post('/stores/:id/delete', function (req, res) {
         res.status(403).send('Unauthorized');
     }
 });
+
+app.get('/stores/:id/edit', async (req, res) => {
+    if (req.session.isLoggedIn && req.session.username === "admin") {
+        const storeId = req.params.id;
+        const store = await Model.getStoreById(storeId);
+
+        const model = {
+            storeId: store.id,
+            storeName: store.name,
+            storeURL: store.url,
+            storeDistrict: store.district
+        }
+
+        res.render('edit-store.hbs', model);
+    } else {
+        res.status(403).send('Unauthorized');
+    }
+})
+
+app.post("/stores/:id/edit", async (req, res) => {
+
+    if (req.session.isLoggedIn && req.session.username === "admin") {
+        const storeId = req.params.id;
+        const newName = req.body.newName;
+        const newURL = req.body.newURL;
+        const newDistrict = req.body.newDistrict;
+        const store = await Model.updateStore(newName, newURL, newDistrict, storeId);
+
+        // const model = {
+        //     storeId: store.id,
+        //     name: req.body.newName,
+        //     url: req.body.newURL,
+        //     district: req.body.newDistrict
+        // }
+
+        // res.render("/edit-store.hbs", model)
+        res.redirect(`/stores/${storeId}`)
+    }
+})
 
 
 app.get('/log-in', async (req, res) => {

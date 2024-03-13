@@ -1,8 +1,13 @@
 {{! <div class="half-container"> }}
 <h1>All stores in JKPG</h1>
 
+<div class="filter-tab">
+    <a href="/stores" value="name-asc">A to Z</a>
+    <a href="/stores/test">Z to A</a>
+</div>
+
+<span class="cat-name">Atollen</span>
 {{#if storesInAtollen.length}}
-    <span class="cat-name">Atollen</span>
     <ol class="list">
         {{#each storesInAtollen}}
             <li class="card">
@@ -18,12 +23,12 @@
     </ol>
 {{else}}
     <div>
-        <p class="text-center">No store is registered for now, please come back later.</p>
+        <p class="text-center">No store is registered in {{district}} for now, please come back later.</p>
     </div>
 {{/if}}
 
+<span class="cat-name">Resecentrum</span>
 {{#if storesInResecentrum.length}}
-    <span class="cat-name">Resecentrum</span>
     <ol class="list">
         {{#each storesInResecentrum}}
             <li class="card">
@@ -39,12 +44,12 @@
     </ol>
 {{else}}
     <div>
-        <p class="text-center">No store is registered for now, please come back later.</p>
+        <p class="text-center">No store is registered in for now, please come back later.</p>
     </div>
 {{/if}}
 
+<span class="cat-name">Tändsticksområdet</span>
 {{#if storesInTandstick.length}}
-    <span class="cat-name">Tändsticksområdet</span>
     <ol class="list">
         {{#each storesInTandstick}}
             <li class="card">
@@ -64,8 +69,8 @@
     </div>
 {{/if}}
 
+<span class="cat-name">Väster</span>
 {{#if storesInVaster.length}}
-    <span class="cat-name">Väster</span>
     <ol class="list">
         {{#each storesInVaster}}
             <li class="card">
@@ -85,8 +90,8 @@
     </div>
 {{/if}}
 
+<span class="cat-name">Öster</span>
 {{#if storesInOster.length}}
-    <span class="cat-name">Öster</span>
     <ol class="list">
         {{#each storesInOster}}
             <li class="card">
@@ -106,8 +111,8 @@
     </div>
 {{/if}}
 
+<span class="cat-name">Other / Unspecified</span>
 {{#if otherStores.length}}
-    <span class="cat-name">Other / Unspecified</span>
     <ol class="list">
         {{#each otherStores}}
             <li class="card">
@@ -131,32 +136,32 @@
 <div class="graphFlexBox">
     <div class="AtollenGraph">
         {{#each storesInAtollen}}
-        <div class="singleBarAtollen"></div>
+            <div class="singleBarAtollen"></div>
         {{/each}}
     </div>
     <div class="resecentrumGraph">
         {{#each storesInResecentrum}}
-        <div class="singleBarResecentrum"></div>
+            <div class="singleBarResecentrum"></div>
         {{/each}}
     </div>
     <div class="tandstickGraph">
         {{#each storesInTandstick}}
-        <div class="singleBarTandstick"></div>
+            <div class="singleBarTandstick"></div>
         {{/each}}
     </div>
     <div class="vasterGraph">
         {{#each storesInVaster}}
-        <div class="singleBarVaster"></div>
+            <div class="singleBarVaster"></div>
         {{/each}}
     </div>
     <div class="osterGraph">
         {{#each storesInOster}}
-        <div class="singleBarOster"></div>
+            <div class="singleBarOster"></div>
         {{/each}}
     </div>
     <div class="otherStoresGraph">
         {{#each otherStores}}
-        <div class="singleBarOtherStores"></div>
+            <div class="singleBarOtherStores"></div>
         {{/each}}
     </div>
 </div>

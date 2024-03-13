@@ -1,7 +1,7 @@
 {{#if isLoggedIn}}
     <div class="admin-menu">
         <span>Admin :</span>
-        <a href="/edit">Edit this store</a>
+        <a href="./{{store.id}}/edit">Edit this store</a>
         <form class="float-right" action="/stores/{{store.id}}/delete" method="post">
             <input type="submit" value="Delete post" />
         </form>
