@@ -126,4 +126,58 @@
         <p class="text-center">No store is registered for now, please come back later.</p>
     </div>
 {{/if}}
+
+<h2 class="card">Distribution of Stores By District</h2>
+<div class="graphFlexBox">
+    <div class="AtollenGraph">
+        {{#each storesInAtollen}}
+        <div class="singleBarAtollen"></div>
+        {{/each}}
+    </div>
+    <div class="resecentrumGraph">
+        {{#each storesInResecentrum}}
+        <div class="singleBarResecentrum"></div>
+        {{/each}}
+    </div>
+    <div class="tandstickGraph">
+        {{#each storesInTandstick}}
+        <div class="singleBarTandstick"></div>
+        {{/each}}
+    </div>
+    <div class="vasterGraph">
+        {{#each storesInVaster}}
+        <div class="singleBarVaster"></div>
+        {{/each}}
+    </div>
+    <div class="osterGraph">
+        {{#each storesInOster}}
+        <div class="singleBarOster"></div>
+        {{/each}}
+    </div>
+    <div class="otherStoresGraph">
+        {{#each otherStores}}
+        <div class="singleBarOtherStores"></div>
+        {{/each}}
+    </div>
+</div>
+<div class="graphContainer">
+    <div class="subTitle">
+        <span class="cat-name">Other</span>
+    </div>
+    <div class="subTitle">
+        <span class="cat-name">Öster</span>
+    </div>
+    <div class="subTitle">
+        <span class="cat-name">Väster</span>
+    </div>
+    <div class="subTitle">
+        <span class="cat-name">Tandst.</span>
+    </div>
+    <div class="subTitle">
+        <span class="cat-name">Resec.</span>
+    </div>
+    <div class="subTitle">
+        <span class="cat-name">Atollen</span>
+    </div>
+</div>
 {{! </div> }}

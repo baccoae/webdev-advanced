@@ -510,3 +510,81 @@ footer {
         font-size: 14px;
     }
 }
+
+.graphFlexBox {
+    display: flex;
+    -webkit-transform: rotate(180deg);
+    -moz-transform: rotate(180deg);
+    -o-transform: rotate(180deg);
+    -ms-transform: rotate(180deg);
+    transform: rotate(180deg);
+    justify-content: center;
+}
+
+.singleBarAtollen{
+    height: 5px;
+    width: 100px;
+    background-color: #e12525;
+    margin-right: 20px;
+}
+
+.singleBarResecentrum {
+    height: 5px;
+    width: 100px;
+    background-color:aqua;
+    transform-origin: top;
+    margin-right: 20px;
+}
+
+.resecentrumGraph {
+    display: flex;
+    flex-direction: column;
+    justify-content: baseline;
+    align-items: end;
+}
+
+.singleBarTandstick {
+    height: 5px;
+    width: 100px;
+    background-color:orange;
+    transform-origin: top;
+    margin-right: 20px;
+}
+
+.singleBarVaster {
+    height: 5px;
+    width: 100px;
+    background-color:blueviolet;
+    transform-origin: top;
+    margin-right: 20px;
+}
+
+.singleBarOster {
+    height: 5px;
+    width: 100px;
+    background-color:yellow;
+    transform-origin: top;
+    margin-right: 20px;
+}
+
+.singleBarOtherStores {
+    height: 5px;
+    width: 100px;
+    background-color:green;
+    transform-origin: top;
+    margin-right: 20px;
+}
+
+.graphContainer {
+    display: flex;
+    justify-content: center;
+    padding-left: 85px;
+    margin-top: 20px;
+}
+
+.subTitle {
+    width: 100px;
+    margin-right: 20px;
+}
+
+
