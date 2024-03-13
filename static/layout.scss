@@ -510,3 +510,101 @@ footer {
         font-size: 14px;
     }
 }
+<<<<<<< Updated upstream
+=======
+
+.graphFlexBox {
+    display: flex;
+    -webkit-transform: rotate(180deg);
+    -moz-transform: rotate(180deg);
+    -o-transform: rotate(180deg);
+    -ms-transform: rotate(180deg);
+    transform: rotate(180deg);
+    justify-content: center;
+}
+
+.singleBarAtollen {
+    height: 5px;
+    width: 100px;
+    background-color: #d8ddef;
+}
+
+.singleBarResecentrum {
+    height: 5px;
+    width: 100px;
+    background-color: #e9c194;
+    transform-origin: top;
+}
+
+.resecentrumGraph {
+    width: 100px;
+    margin-right: 20px;
+}
+
+.osterGraph {
+    width: 100px;
+    margin-right: 20px;
+}
+
+.vasterGraph {
+    width: 100px;
+    margin-right: 20px;
+}
+
+.AtollenGraph {
+    width: 100px;
+    margin-right: 20px;
+}
+
+.tandstickGraph {
+    width: 100px;
+    margin-right: 20px;
+}
+
+.singleBarTandstick {
+    height: 5px;
+    width: 100px;
+    background-color: #aeaa9a;
+    transform-origin: top;
+}
+
+.singleBarVaster {
+    height: 5px;
+    width: 100px;
+    background-color: #7293a0;
+    transform-origin: top;
+}
+
+.singleBarOster {
+    height: 5px;
+    width: 100px;
+    background-color: #45b69c;
+    transform-origin: top;
+}
+
+.singleBarOtherStores {
+    height: 5px;
+    width: 100px;
+    background-color: #21d19f;
+    transform-origin: top;
+}
+
+.graphContainer {
+    display: flex;
+    justify-content: center;
+    padding-left: 70px;
+    margin-top: 20px;
+}
+
+.subTitle {
+    width: 100px;
+    margin-right: 20px;
+}
+
+.graphTitle {
+    font-family: $font-sans;
+    font-size: 14px;
+    font-weight: 600;
+    text-transform: uppercase;
+}
+>>>>>>> Stashed changes

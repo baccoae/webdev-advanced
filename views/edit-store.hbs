@@ -1,0 +1,43 @@
+{{#if validationErrors.length}}
+    <div>
+        <p>Could not add this store because of the following errors : </p>
+        <ul>
+            {{#each validationErrors}}
+                <li>{{this}}</li>
+            {{/each}}
+        </ul>
+    </div>
+{{/if}}
+<div class="half-container">
+    <h1>Edit this store</h1>
+
+    <form action="/stores/{{storeId}}/edit" method="post">
+        <div class="form-item">
+            <label for="Store Name update">New name</label>
+            <input type="text" name="newName" value="{{storeName}}" />
+        </div>
+
+        <div class="form-item">
+            <label for="Store URL update">New website URL</label>
+            <input type="text" name="newURL" value="{{storeURL}}" />
+        </div>
+
+        <div class="form-item">
+            <label for="Store District update">New District</label>
+            <select name="newDistrict" id="district">
+                <optgroup>
+                    <option value="" disabled selected>Select a District</option>
+                    <option value="Öster">Öster</option>
+                    <option value="Vaster">Väster</option>
+                    <option value="Resecentrum">Resecentrum</option>
+                    <option value="Atollen">Atollen</option>
+                    <option value="Tändsticksområdet">Tändsticksområdet</option>
+                    <option value="Other">Other</option>
+                </optgroup>
+            </select>
+        </div>
+
+        <input type="submit" class="btn primary" value="Update store" />
+    </form>
+
+</div>
